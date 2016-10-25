@@ -8,8 +8,9 @@ public class NaturalDisaster {
 		this.epicentre=epicentre;
 		this.radius=radius;
 	}
-	public void GiveSafetyInstructions() {
-		
+	
+	public String GiveSafetyInstructions() {
+		return "Keep your calm, and put yourself in a safe place";
 	}
 
 	public boolean isInDisaster(Location location){
