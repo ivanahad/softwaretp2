@@ -3,19 +3,19 @@ package ers;
 import java.util.Objects;
 
 public class Language {
-	private static String language;
+	private static LanguageID language;
 	
-	public Language(String language){
+	public Language(LanguageID language){
 		this.language=language;
 	}
 	
 	public void chooseLanguage(LanguageID lang) {
 		switch(lang) {
-		case English : language="English"; 
+		case English : language=LanguageID.English; 
 		break;
-		case French : language="French"; 
+		case French : language=LanguageID.French; 
 		break;
-		default : language="English"; 
+		default : language=LanguageID.English; 
 		break;
 		}
 	}
@@ -24,7 +24,7 @@ public class Language {
 		English, French
 	}
 	
-	public String getLanguage() {
+	public LanguageID getLanguage() {
 		return language;
 	}
 }

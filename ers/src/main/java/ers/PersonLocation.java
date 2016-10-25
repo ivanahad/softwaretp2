@@ -14,7 +14,7 @@ public class PersonLocation extends Location{
 		double minDistance = Double.MAX_VALUE;
         Location nearestLocation = null;
         for (Location location : locations){
-            double distance = this.distanceLocation(location);
+            double distance = this.distanceLocations(location);
             if (distance < minDistance){
                 minDistance = distance;
                 nearestLocation = location;
@@ -22,4 +22,5 @@ public class PersonLocation extends Location{
         }
 		return nearestLocation;
 	}
+
 }
