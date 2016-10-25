@@ -22,6 +22,10 @@ public class testContacts {
 		assertEquals(agnese, contacts.findContact("Agnese"));
 		assertEquals(eddy, contacts.findContact("Agnese"));
 		assertEquals(agnese, contacts.findContact("Alfred"));
+	}
+	
+	@Test
+	public void testRemoveContact(){
 		
 	}
 	

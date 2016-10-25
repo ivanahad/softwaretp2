@@ -7,4 +7,6 @@ public class PersonLocation extends Location{
 		super(coordinate);
 		this.person = person;
 	}
+	
+	
 }
