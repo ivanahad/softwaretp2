@@ -1,8 +1,5 @@
 package ers;
 
-/*
- * Represents a natural disaster that is described as an epicentre and its radius. 
- */
 public class NaturalDisaster {
 	public Location epicentre;
 	public double radius;
@@ -16,9 +13,6 @@ public class NaturalDisaster {
 		return "Keep your calm, and put yourself in a safe place";
 	}
 
-	/*
-	 * Allows to know if a certain location is in the surface of the disaster that is currently occuring
-	 */
 	public boolean isInDisaster(Location location){
 		double distance;
 		double longueur = location.coordinate.getX()-epicentre.coordinate.getX();
