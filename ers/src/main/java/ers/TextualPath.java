@@ -1,5 +1,8 @@
 package ers;
 
+/**
+ * Path towards two locations. Indicates the path via text.
+ */
 public class TextualPath extends Path{
 	Language language;
 	
