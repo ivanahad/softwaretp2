@@ -11,7 +11,6 @@ public class Person {
 		this.number = number;
 	}
 
-
 	@Override
 	public boolean equals(Object o) {
 		if(this==o){

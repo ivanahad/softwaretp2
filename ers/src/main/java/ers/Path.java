@@ -1,5 +1,8 @@
 package ers;
 
+/**
+ * Path towards two endpoints.
+ */
 public class Path {
 	
 	public Location start;
