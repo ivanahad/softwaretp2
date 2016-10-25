@@ -18,7 +18,7 @@ public class testPersonLocation {
         Location location2 = createLocation(4, 5);
         Location location3 = createLocation(-4, -9);
 
-        LinkedList<Location> locations = new LinkedList<>();
+        LinkedList<Location> locations = new LinkedList<Location>();
         locations.add(location1);
         locations.add(location2);
         locations.add(location3);
