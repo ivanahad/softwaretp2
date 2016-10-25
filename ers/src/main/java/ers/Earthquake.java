@@ -1,5 +1,8 @@
 package ers;
 
+/*
+ * This class is for a specific disaster that is an earthquake. In case of an earthquake, specific instructions will be given.
+ */
 public class Earthquake extends NaturalDisaster {
 	public double magnitude;
 	

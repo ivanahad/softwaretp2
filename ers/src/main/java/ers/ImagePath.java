@@ -1,5 +1,8 @@
 package ers;
 
+/*
+ * Represents a path given by a picture instructions
+ */
 public class ImagePath extends Path{
 	Language language;
 	

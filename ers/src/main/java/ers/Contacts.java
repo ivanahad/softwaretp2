@@ -1,6 +1,10 @@
 package ers;
 
 import java.util.*;
+
+/*
+ * Represents a list of contacts of a person and that he might modify.
+ */
 public class Contacts {
 	
 	public HashMap<String,Person> listContacts;
@@ -9,6 +13,9 @@ public class Contacts {
 		listContacts = new HashMap<String,Person>();
 	}
 	
+	/*
+	 * Adds a contact entry with its name as the index
+	 */
 	public void addContact(Person person){
 		String key = person.name;
 		
@@ -19,6 +26,9 @@ public class Contacts {
 		listContacts.remove(person.name);
 	}
 	
+	/*
+	 * returns a Person object according of a name 
+	 */
 	public Person findContact(String name) {
 		return listContacts.get(name);	
 	}

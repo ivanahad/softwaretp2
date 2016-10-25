@@ -2,6 +2,9 @@ package ers;
 
 import java.util.Objects;
 
+/*
+ * This class allows the user to change the language used by the software. The user can choose between English and French.
+ */
 public class Language {
 	private static LanguageID language;
 	

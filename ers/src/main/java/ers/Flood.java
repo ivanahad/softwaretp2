@@ -1,5 +1,8 @@
 package ers;
 
+/*
+ * This class is for a specific disaster that is a flood. In case of flooding, specific instructions will be given.
+ */
 public class Flood extends NaturalDisaster{
 	
 	public Flood(Location epicentre, double radius) {

@@ -1,5 +1,6 @@
 package ers;
 
+
 public class Location {
 	public Coordinate coordinate;
 	
