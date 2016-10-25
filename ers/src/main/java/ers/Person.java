@@ -4,16 +4,13 @@ import java.util.Objects;
 
 public class Person {
 	public String name;
-	public String contact;
+	public String number;
 	
-	public Person(String name, String contact) {
+	public Person(String name, String number) {
 		this.name=  name;
-		this.contact = contact;
+		this.number = number;
 	}
-	
-	public void contact() {
-		
-	}
+
 
 	@Override
 	public boolean equals(Object o) {
@@ -28,6 +25,6 @@ public class Person {
 		}
 		Person person = (Person) o;
 		
-		return Objects.equals(name, person.name) && Objects.equals(contact, person.contact);
+		return Objects.equals(name, person.name) && Objects.equals(number, person.number);
 	}
 }
