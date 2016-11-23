@@ -17,4 +17,9 @@ public class Earthquake extends NaturalDisaster {
 				+ "If you're driving, move the car out of traffic and stop. Avoid parking under or on bridges or overpasses. "
 				+ "Try to get clear of trees, light posts, signs and power lines. When you resume driving, watch out for road hazards.";
 	}
+
+	@Override
+	public String toString(){
+		return location.toString() + " magnitude: " + magnitude + "( earthquake)";
+	}
 }

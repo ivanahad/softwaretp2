@@ -40,4 +40,9 @@ public class SafePlace{
 		SafePlace other = (SafePlace) o;
 		return this.location.equals(other.location) && this.description == other.description;
 	}
+
+	@Override
+	public String toString(){
+		return location.toString() + "(description)";
+	}
 }
