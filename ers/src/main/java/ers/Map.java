@@ -47,4 +47,32 @@ public class Map {
     public LinkedList<SafePlace> getSafePlaces() {
         return safePlaces;
     }
+
+    public String toString(){
+        return personLocationToString() + naturalDisastersToString() + safePlacesToString();
+    }
+
+    public String naturalDisastersToString(){
+        if (naturalDisasters.isEmpty())
+            return "";
+        String result = "Natural Disasters locations :\n";
+        for(NaturalDisaster naturalDisaster : naturalDisasters){
+            result += "\t - " + naturalDisaster.toString() + "\n";
+        }
+        return result;
+    }
+
+    public String safePlacesToString(){
+        if (safePlaces.isEmpty())
+            return "";
+        String result = "Safe Places locations:\n";
+        for(SafePlace safePlace : safePlaces){
+            result += "\t - " +safePlace.toString() + "\n";
+        }
+        return result;
+    }
+
+    public String personLocationToString(){
+        return"Your position : " + personLocation.toString() + "\n";
+    }
 }

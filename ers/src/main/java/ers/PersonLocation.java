@@ -28,4 +28,9 @@ public class PersonLocation extends Location{
 		return nearestLocation;
 	}
 
+	@Override
+	public String toString(){
+		return super.toString() + " - " + person.toString();
+	}
+
 }

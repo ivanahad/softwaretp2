@@ -54,4 +54,9 @@ public class Location {
 		Location other = (Location) o;
 		return this.radius == other.radius && this.coordinate.equals(other.coordinate);
 	}
+
+	@Override
+	public String toString(){
+		return coordinate.toString() + " radius: " + radius;
+	}
 }

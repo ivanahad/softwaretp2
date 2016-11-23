@@ -28,4 +28,9 @@ public class NaturalDisaster {
 		NaturalDisaster other = (NaturalDisaster) o;
 		return this.location.equals(other.location);
 	}
+
+	@Override
+	public String toString(){
+		return location.toString() + " (natural disaster)";
+	}
 }

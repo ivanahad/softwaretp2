@@ -35,4 +35,9 @@ public class Coordinate {
 		Coordinate other = (Coordinate) o;
 		return this.y == other.y && this.x == other.x;
 	}
+
+	@Override
+	public String toString(){
+		return "x: " + x + " y: " + y;
+	}
 }
