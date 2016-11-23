@@ -14,6 +14,11 @@ public class Location {
 		this.coordinate = coordinate;
 		this.radius = radius;
 	}
+
+	public Location(int x, int y, double radius){
+		this.coordinate = new Coordinate(x, y);
+		this.radius = radius;
+	}
 	
 	public double distanceLocations(Location otherLocation)
 	{
@@ -37,5 +42,16 @@ public class Location {
 
 	public void setRadius(double radius) {
 		this.radius = radius;
+	}
+
+	@Override
+	public boolean equals(Object o){
+		if(o == null)
+			return false;
+		else if (getClass() != o.getClass())
+			return false;
+
+		Location other = (Location) o;
+		return this.radius == other.radius && this.coordinate.equals(other.coordinate);
 	}
 }

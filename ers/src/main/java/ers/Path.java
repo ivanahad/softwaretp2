@@ -7,7 +7,6 @@ public class Path {
 	
 	public Location start;
 	public Location end;
-	Language language;
 
 	public Path(Location start, Location end) {
 		this.start = start;

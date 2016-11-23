@@ -29,4 +29,15 @@ public class SafePlace{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(o == null)
+			return false;
+		else if (getClass() != o.getClass())
+			return false;
+
+		SafePlace other = (SafePlace) o;
+		return this.location.equals(other.location) && this.description == other.description;
+	}
 }

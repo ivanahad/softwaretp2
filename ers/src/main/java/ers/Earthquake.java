@@ -9,7 +9,7 @@ public class Earthquake extends NaturalDisaster {
 	}	
 	
 	@Override
-	public String GiveSafetyInstructions() { 
+	public String GiveSafetyInstructions() {
 		//source : http://www.conservation.ca.gov/index/Earthquakes/Pages/qh_earthquakes_what.aspx
 		return "Keep your calm, and put yourself in a safe place. If you are in a building, hide under a table and hold it, or stand to an interior wall"
 				+ "Stay clear of exterior walls, glass, heavy furniture, fireplaces and appliances."

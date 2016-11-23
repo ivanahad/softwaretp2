@@ -17,4 +17,15 @@ public class NaturalDisaster {
 		double distance = Math.sqrt(Math.pow(longueur, 2) + Math.pow(largeur, 2));
 		return (distance<this.location.getRadius());
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(o == null)
+			return false;
+		else if (getClass() != o.getClass())
+			return false;
+
+		NaturalDisaster other = (NaturalDisaster) o;
+		return this.location.equals(other.location);
+	}
 }
