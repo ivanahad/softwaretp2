@@ -1,23 +1,36 @@
 package ers;
 
 public class NaturalDisaster {
-	public Location epicentre;
-	public double radius;
+	public Location location;
 	
-	public NaturalDisaster(Location epicentre, double radius) {
-		this.epicentre=epicentre;
-		this.radius=radius;
+	public NaturalDisaster(Location location) {
+		this.location = location;
 	}
 	
 	public String GiveSafetyInstructions() {
-		return "Keep your calm, and put yourself in a safe place";
+		return Language.getString("natural_disaster_safety_instructions");
 	}
 
 	public boolean isInDisaster(Location location){
-		double distance;
-		double longueur = location.coordinate.getX()-epicentre.coordinate.getX();
-		double largeur = location.coordinate.getY()-epicentre.coordinate.getY();
-		distance = Math.sqrt(Math.pow(longueur, 2) + Math.pow(largeur, 2));
-		return (distance<radius);
+		double longueur = location.getCoordinate().getX()-this.location.getCoordinate().getX();
+		double largeur = location.getCoordinate().getY()-this.location.getCoordinate().getY();
+		double distance = Math.sqrt(Math.pow(longueur, 2) + Math.pow(largeur, 2));
+		return (distance<this.location.getRadius());
+	}
+
+	@Override
+	public boolean equals(Object o){
+		if(o == null)
+			return false;
+		else if (getClass() != o.getClass())
+			return false;
+
+		NaturalDisaster other = (NaturalDisaster) o;
+		return this.location.equals(other.location);
+	}
+
+	@Override
+	public String toString(){
+		return location.toString() + " ( "+ Language.getString("natural_disaster") +" )";
 	}
 }

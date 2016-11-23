@@ -10,6 +10,11 @@ public class PersonLocation extends Location{
 		this.person = person;
 	}
 
+	public PersonLocation(Person person, Coordinate coordinate, double radius){
+		super(coordinate, radius);
+		this.person = person;
+	}
+
 	public Location nearestLocations(List<Location> locations){
 		double minDistance = Double.MAX_VALUE;
         Location nearestLocation = null;
@@ -21,6 +26,11 @@ public class PersonLocation extends Location{
             }
         }
 		return nearestLocation;
+	}
+
+	@Override
+	public String toString(){
+		return super.toString() + " - " + person.toString();
 	}
 
 }
