@@ -57,6 +57,6 @@ public class Location {
 
 	@Override
 	public String toString(){
-		return coordinate.toString() + " radius: " + radius;
+		return coordinate.toString() + Language.getString("radius") + ": " + radius;
 	}
 }

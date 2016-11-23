@@ -11,7 +11,7 @@ public class SafePlace{
 
 	public SafePlace(Location location) {
 		this.location = location;
-		this.description = "A safe place";
+		this.description = Language.getString("safe_place_default_description");
 	}
 
 	public Location getLocation() {
@@ -43,6 +43,6 @@ public class SafePlace{
 
 	@Override
 	public String toString(){
-		return location.toString() + "(description)";
+		return location.toString() + "("  + description + ")";
 	}
 }

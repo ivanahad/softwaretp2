@@ -14,22 +14,22 @@ public class Path {
 	}
 	
 	public String givePathInstructions(){
-		String path = "Go in direction of ";
+		String path = Language.getString("path_go_to");
 		if (start.getCoordinate().getY() < end.getCoordinate().getY()){ // North
-			path = path + "N";
+			path = path + Language.getString("path_north");
 		}
 		else if (start.getCoordinate().getY() > end.getCoordinate().getY()){ //South
-			path = path + "S";
+			path = path + Language.getString("path_south");
 		}
 		if (start.getCoordinate().getX() < end.getCoordinate().getX()){ // East
-			path = path + "E";
+			path = path + Language.getString("path_east");
 		}
 		else if (start.getCoordinate().getX() > end.getCoordinate().getX()){ // West
-			path = path + "W";
+			path = path + Language.getString("path_west");
 		}
 		if (start.getCoordinate().getY() == end.getCoordinate().getY() &&
 				start.getCoordinate().getX() == end.getCoordinate().getX()){
-			path = "You've arrived";
+			path = Language.getString("path_reached_destination");
 		}
 
 		return path;

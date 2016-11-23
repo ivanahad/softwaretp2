@@ -8,7 +8,7 @@ public class NaturalDisaster {
 	}
 	
 	public String GiveSafetyInstructions() {
-		return "Keep your calm, and put yourself in a safe place";
+		return Language.getString("natural_disaster_safety_instructions");
 	}
 
 	public boolean isInDisaster(Location location){
@@ -31,6 +31,6 @@ public class NaturalDisaster {
 
 	@Override
 	public String toString(){
-		return location.toString() + " (natural disaster)";
+		return location.toString() + " ( "+ Language.getString("natural_disaster") +" )";
 	}
 }

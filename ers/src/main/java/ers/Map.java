@@ -55,7 +55,7 @@ public class Map {
     public String naturalDisastersToString(){
         if (naturalDisasters.isEmpty())
             return "";
-        String result = "Natural Disasters locations :\n";
+        String result = Language.getString("natural_disasters_locations") + " :\n";
         for(NaturalDisaster naturalDisaster : naturalDisasters){
             result += "\t - " + naturalDisaster.toString() + "\n";
         }
@@ -65,7 +65,7 @@ public class Map {
     public String safePlacesToString(){
         if (safePlaces.isEmpty())
             return "";
-        String result = "Safe Places locations:\n";
+        String result = Language.getString("safe_places_locations") + " :\n";
         for(SafePlace safePlace : safePlaces){
             result += "\t - " +safePlace.toString() + "\n";
         }
@@ -73,6 +73,6 @@ public class Map {
     }
 
     public String personLocationToString(){
-        return"Your position : " + personLocation.toString() + "\n";
+        return Language.getString("your_position") + personLocation.toString() + "\n";
     }
 }
