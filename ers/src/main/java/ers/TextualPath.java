@@ -13,20 +13,20 @@ public class TextualPath extends Path{
 
 	public String getPath(){
 		String path = "Go in direction of ";
-		if (start.coordinate.getY() < end.coordinate.getY()){ // North
+		if (start.getCoordinate().getY() < end.getCoordinate().getY()){ // North
 			path = path + "N";
 		}
-		else if (start.coordinate.getY() > end.coordinate.getY()){ //South
+		else if (start.getCoordinate().getY() > end.getCoordinate().getY()){ //South
 			path = path + "S";
 		}
-		if (start.coordinate.getX() < end.coordinate.getX()){ // East
+		if (start.getCoordinate().getX() < end.getCoordinate().getX()){ // East
 			path = path + "E";
 		}
-		else if (start.coordinate.getX() > end.coordinate.getX()){ // West
+		else if (start.getCoordinate().getX() > end.getCoordinate().getX()){ // West
 			path = path + "W";
 		}
-		if (start.coordinate.getY() == end.coordinate.getY() &&
-				start.coordinate.getX() == end.coordinate.getX()){
+		if (start.getCoordinate().getY() == end.getCoordinate().getY() &&
+				start.getCoordinate().getX() == end.getCoordinate().getX()){
 			path = "You've arrived";
 		}
 
