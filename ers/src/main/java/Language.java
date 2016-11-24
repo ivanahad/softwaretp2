@@ -6,19 +6,28 @@ import java.util.ResourceBundle;
  * This class allows the user to change the language used by the software. The user can choose between English and French.
  */
 public class Language {
-	private static String currentLanguage = "en";
-	private static String[] supportedLanguages = {"en", "fr"};
-	private static String filePrefixes = "MessageBundle";
-	private static ResourceBundle messages = ResourceBundle.getBundle(filePrefixes, new Locale("en", "US"));
+	private String currentLanguage;
+	private String[] supportedLanguages;
+	private String filePrefixes;
+	private ResourceBundle messages;
+
+	//make the constructor private so that this class cannot be instantiated
+	private Language(){
+		currentLanguage = "en";
+		supportedLanguages = new String[]{"en", "fr"};
+		filePrefixes = "MessageBundle";
+		messages = ResourceBundle.getBundle(filePrefixes, new Locale("en", "US"));
+	}
+
 
 
 	public static void switchLanguage(String newLanguage){
-		if (isSupported(newLanguage))
-			currentLanguage = newLanguage;
-			updateResourceBundle(newLanguage);
+		if (onlyInstance.isSupported(newLanguage))
+			onlyInstance.currentLanguage = newLanguage;
+			onlyInstance.updateResourceBundle(newLanguage);
 	}
 
-	private static void updateResourceBundle(String language){
+	private void updateResourceBundle(String language){
 		switch(language){
 			case "en":
 				messages = ResourceBundle.getBundle(filePrefixes, new Locale("en", "US"));
@@ -31,7 +40,7 @@ public class Language {
 		}
 	}
 
-	private static boolean isSupported(String language){
+	private boolean isSupported(String language){
 		for(String lang : supportedLanguages){
 			if(lang == language)
 				return true;
@@ -39,11 +48,21 @@ public class Language {
 		return false;
 	}
 
+	//get the only existing instance of the object
+	public static Language getInstance(){
+		return onlyInstance;
+	}
+
+	//Get the only instance of the object
+	private static Language onlyInstance = new Language();
+
+	//returns the current language set
 	public static String getCurrentLanguage(){
-		return currentLanguage;
+		return onlyInstance.currentLanguage;
 	}
 
 	public static String getString(String key){
-		return messages.getString(key);
+		return onlyInstance.messages.getString(key);
 	}
+
 }
