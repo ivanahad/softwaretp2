@@ -1,3 +1,5 @@
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
+
 import java.io.*;
 import java.util.*;
 
@@ -5,9 +7,21 @@ import java.util.*;
 
 public class ConfigProperty {
 
-    private static Properties prop = new Properties();
-    private static InputStream input = null;
+    private Properties prop;
+    private InputStream input;
 
+    private ConfigProperty(){
+        prop = new Properties();
+        input = null;
+    }
+
+    //creates the only instance of the object
+    private static ConfigProperty onlyInstance = new ConfigProperty();
+
+    //get the only existing instance of the object
+    public static ConfigProperty getInstance(){
+        return onlyInstance;
+    }
 
     public static void initializeConfiguration(){
         initializeConfiguration("config.properties");
@@ -16,15 +30,15 @@ public class ConfigProperty {
     public static void initializeConfiguration(String filename){
         try {
             ClassLoader classLoader = ConfigProperty.class.getClassLoader();
-            input = new FileInputStream(classLoader.getResource(filename).getFile());
-            prop.load(input);
+            onlyInstance.input = new FileInputStream(classLoader.getResource(filename).getFile());
+            onlyInstance.prop.load(onlyInstance.input);
 
         } catch (IOException | NullPointerException ex) {
             ex.printStackTrace();
         } finally {
-            if (input != null) {
+            if (onlyInstance.input != null) {
                 try {
-                    input.close();
+                    onlyInstance.input.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -33,7 +47,7 @@ public class ConfigProperty {
     }
 
     public static String getPropValue(String key){
-        return prop.getProperty(key);
+        return onlyInstance.prop.getProperty(key);
     }
 
 }
