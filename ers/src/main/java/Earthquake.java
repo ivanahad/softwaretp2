@@ -1,3 +1,7 @@
+
+/**
+ * Created by Ivan & Eddy
+ */
 public class Earthquake extends NaturalDisaster {
 	public double magnitude;
 	

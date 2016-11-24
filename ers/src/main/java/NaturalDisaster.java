@@ -1,3 +1,7 @@
+/**
+ * Created by Ivan & Eddy
+ */
+
 public class NaturalDisaster {
 	public Location location;
 	

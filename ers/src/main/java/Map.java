@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 /**
- * Created by ndizera on 23/11/2016.
+ * Created by ndizera & Ivan
  */
 public class Map {
     private LinkedList<NaturalDisaster> naturalDisasters;

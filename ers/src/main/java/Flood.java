@@ -1,3 +1,7 @@
+
+/**
+ * Created by Ivan & Eddy
+ */
 public class Flood extends NaturalDisaster{
 	
 	public Flood(Location location) {

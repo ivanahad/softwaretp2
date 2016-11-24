@@ -5,6 +5,9 @@ import java.util.*;
 
 // Note : Inspired by Crunchify.com's properties file explanation
 
+/**
+ * Created by Ivan & Eddy
+ */
 public class ConfigProperty {
 
     private Properties prop;

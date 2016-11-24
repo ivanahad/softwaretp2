@@ -1,3 +1,7 @@
+
+/**
+ * Created by Ivan & Eddy
+ */
 public class Location {
 	private Coordinate coordinate;
 	private double radius;

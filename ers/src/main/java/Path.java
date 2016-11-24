@@ -1,6 +1,11 @@
 /**
  * Path towards two endpoints.
  */
+
+/**
+ * Created by Ivan & Eddy
+ * This class represents a Path towards two endpoints.
+ */
 public class Path {
 	
 	public Location start;
