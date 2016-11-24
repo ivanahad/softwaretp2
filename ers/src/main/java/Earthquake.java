@@ -9,7 +9,11 @@ public class Earthquake extends NaturalDisaster {
 		super(location);
 		this.magnitude = magnitude;
 	}	
-	
+
+	public Earthquake(Location location){
+		super(location);
+		this.magnitude = 3.0;
+	}
 	@Override
 	public String GiveSafetyInstructions() {
 		//source : http://www.conservation.ca.gov/index/Earthquakes/Pages/qh_earthquakes_what.aspx
