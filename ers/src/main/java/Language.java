@@ -53,7 +53,7 @@ public class Language {
 		return onlyInstance;
 	}
 
-	//Get the only instance of the object
+	//creates the only instance of the object
 	private static Language onlyInstance = new Language();
 
 	//returns the current language set

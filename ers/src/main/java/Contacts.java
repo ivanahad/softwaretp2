@@ -7,7 +7,7 @@ public class Contacts {
 	
 	public HashMap<String,Person> listContacts;
 	
-	public Contacts(HashMap<String,Person> Contacts){
+	private Contacts(){
 		listContacts = new HashMap<String,Person>();
 	}
 	
@@ -30,4 +30,12 @@ public class Contacts {
 	public Person findContact(String name) {
 		return listContacts.get(name);	
 	}
+
+	//get the only existing instance of the object
+	public static Contacts getInstance(){
+		return onlyInstance;
+	}
+
+	//creates the only instance of the object
+	private static Contacts onlyInstance = new Contacts();
 }
