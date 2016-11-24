@@ -4,46 +4,15 @@ import java.util.LinkedList;
  * Created by ndizera on 23/11/2016.
  */
 public class Map {
+    private static Map onlyInstance = new Map();
     private LinkedList<NaturalDisaster> naturalDisasters;
     private LinkedList<SafePlace> safePlaces;
     private PersonLocation personLocation;
 
-    public Map(PersonLocation personLocation) {
-        this.personLocation = personLocation;
+    private Map(){
+        this.personLocation = null;
         this.naturalDisasters = new LinkedList<>();
         this.safePlaces = new LinkedList<>();
-    }
-
-    public void addNaturalDisaster(NaturalDisaster naturalDisaster){
-        naturalDisasters.add(naturalDisaster);
-    }
-
-    public void removeNaturalDisaster(NaturalDisaster naturalDisaster){
-        naturalDisasters.remove(naturalDisaster);
-    }
-
-    public void addSafePlace(SafePlace safePlace){
-        safePlaces.add(safePlace);
-    }
-
-    public void removeSafePlace(SafePlace safePlace){
-        safePlaces.remove(safePlace);
-    }
-
-    public PersonLocation getPersonLocation() {
-        return personLocation;
-    }
-
-    public void setPersonLocation(PersonLocation personLocation) {
-        this.personLocation = personLocation;
-    }
-
-    public LinkedList<NaturalDisaster> getNaturalDisasters() {
-        return naturalDisasters;
-    }
-
-    public LinkedList<SafePlace> getSafePlaces() {
-        return safePlaces;
     }
 
     public String toString(){
@@ -71,6 +40,48 @@ public class Map {
     }
 
     public String personLocationToString(){
+        if(personLocation == null)
+            return "";
         return Language.getString("your_position") + personLocation.toString() + "\n";
+    }
+
+    public static void addNaturalDisaster(NaturalDisaster naturalDisaster){
+        onlyInstance.naturalDisasters.add(naturalDisaster);
+    }
+
+    public static void removeNaturalDisaster(NaturalDisaster naturalDisaster){
+        onlyInstance.naturalDisasters.remove(naturalDisaster);
+    }
+
+    public static void addSafePlace(SafePlace safePlace){
+        onlyInstance.safePlaces.add(safePlace);
+    }
+
+    public static void removeSafePlace(SafePlace safePlace){
+        onlyInstance.safePlaces.remove(safePlace);
+    }
+
+    public static PersonLocation getPersonLocation() {
+        return onlyInstance.personLocation;
+    }
+
+    public static void setPersonLocation(PersonLocation personLocation) {
+        onlyInstance.personLocation = personLocation;
+    }
+
+    public static LinkedList<NaturalDisaster> getNaturalDisasters() {
+        return onlyInstance.naturalDisasters;
+    }
+
+    public static LinkedList<SafePlace> getSafePlaces() {
+        return onlyInstance.safePlaces;
+    }
+
+    public static String getMap(){
+        return onlyInstance.toString();
+    }
+
+    public static void reset(){
+        onlyInstance = new Map();
     }
 }

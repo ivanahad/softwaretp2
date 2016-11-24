@@ -12,53 +12,51 @@ import org.junit.Test;
 import java.util.LinkedList;
 
 public class testMap {
-    private Map map;
-
     @Before
     public void setUp(){
         PersonLocation personLocation = testPersonLocation.createPersonLocation(0, 0);
-        map = new Map(personLocation);
+        Map.setPersonLocation(personLocation);
     }
 
     @After
     public void tearDown(){
-        map = null;
+        Map.reset();
     }
 
     @Test
     public void testaddRemoveNaturalDisaster(){
-        LinkedList<NaturalDisaster> naturalDisasters = map.getNaturalDisasters();
+        LinkedList<NaturalDisaster> naturalDisasters = Map.getNaturalDisasters();
 
         NaturalDisaster naturalDisaster1 = testNaturalDisaster.createNaturalDisaster(0, 0, 2);
         NaturalDisaster naturalDisaster2 = testNaturalDisaster.createNaturalDisaster(1, 5, 2);
 
-        map.addNaturalDisaster(naturalDisaster1);
-        map.addNaturalDisaster(naturalDisaster2);
+        Map.addNaturalDisaster(naturalDisaster1);
+        Map.addNaturalDisaster(naturalDisaster2);
         assertTrue(naturalDisasters.contains(naturalDisaster1));
         assertTrue(naturalDisasters.contains(naturalDisaster2));
 
         NaturalDisaster naturalDisasterToRemove = testNaturalDisaster.createNaturalDisaster(0, 0, 2);
 
-        map.removeNaturalDisaster(naturalDisasterToRemove);
+        Map.removeNaturalDisaster(naturalDisasterToRemove);
         assertFalse(naturalDisasters.contains(naturalDisaster1));
 
     }
 
     @Test
     public void testaddRemoveSafePlace(){
-        LinkedList<SafePlace> safePlaces = map.getSafePlaces();
+        LinkedList<SafePlace> safePlaces = Map.getSafePlaces();
 
         SafePlace safePlace1 = testSafePlace.createSafePlace(0, 0, 5, "Safe place");
         SafePlace safePlace2 = testSafePlace.createSafePlace(1, 8, 5, "Safe place");
 
-        map.addSafePlace(safePlace1);
-        map.addSafePlace(safePlace2);
+        Map.addSafePlace(safePlace1);
+        Map.addSafePlace(safePlace2);
         assertTrue(safePlaces.contains(safePlace1));
         assertTrue(safePlaces.contains(safePlace2));
 
         SafePlace safePlaceToRemove = testSafePlace.createSafePlace(0, 0, 5, "Safe place");
 
-        map.removeSafePlace(safePlaceToRemove);
+        Map.removeSafePlace(safePlaceToRemove);
         assertFalse(safePlaces.contains(safePlace1));
 
 
