@@ -12,12 +12,10 @@ public class testConfig {
 
 
     @Test
-    public void testGetConfig() throws IOException {
-        ConfigProperty properties = new ConfigProperty();
+    public void testGetPropertyValue() throws IOException {
+        ConfigProperty.initializeConfiguration("config.properties");
 
-        String current = properties.getOnePropValue("letUserChooseLanguage");
-        String rightAnswer = "no";
-
-        assertEquals(rightAnswer, current);
+        assertEquals(ConfigProperty.getPropValue("letUserChooseLanguage"), "no");
+        assertEquals(ConfigProperty.getPropValue("guideUserToSafePlace"), "textual");
     }
 }

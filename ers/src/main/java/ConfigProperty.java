@@ -5,73 +5,21 @@ import java.util.*;
 
 public class ConfigProperty {
 
+    private static Properties prop = new Properties();
+    private static InputStream input = null;
 
-    Properties prop = new Properties();
-    InputStream input = null;
 
-    public String getPropValues() throws IOException {
-
-        String letUserChooseLanguage = null;
-        String informLocalisation;
-        String giveInstruction;
-        String guideUserToNearestSafePlace;
-        String guideUserToSafePlace;
-        String informFriendsAboutSafety;
-        String defaultLanguage;
-
-        String result = null;
-        try {
-            input = new FileInputStream("./ers/config.properties");
-
-            // load a properties file
-            prop.load(input);
-
-            // get the property value and print it out
-            letUserChooseLanguage = prop.getProperty("letUserChooseLanguage");
-            informLocalisation = prop.getProperty("informLocalisation");
-            giveInstruction = prop.getProperty("giveInstruction");
-            guideUserToNearestSafePlace = prop.getProperty("guideUserToNearestSafePlace");
-            guideUserToSafePlace = prop.getProperty("guideUserToSafePlace");
-            informFriendsAboutSafety = prop.getProperty("informFriendsAboutSafety");
-            defaultLanguage = prop.getProperty("defaultLanguage");
-
-            result = "The list of properties is :\n" +
-                    "letUserChooseLanguage : " + letUserChooseLanguage + ",\n" +
-                    "informLocalisation : " + informLocalisation + ",\n" +
-                    "giveInstruction : " + giveInstruction + ",\n" +
-                    "guideUserToNearestSafePlace : " + guideUserToNearestSafePlace + ",\n" +
-                    "guideUserToSafePlace : " + guideUserToSafePlace + ",\n" +
-                    "informFriendsAboutSafety : " + informFriendsAboutSafety + ",\n" +
-                    "defaultLanguage : " + defaultLanguage;
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        System.out.println(result);
-        return letUserChooseLanguage;
+    public static void initializeConfiguration(){
+        initializeConfiguration("config.properties");
     }
 
-    public String getOnePropValue(String chosen) throws IOException {
-        String result=null;
+    public static void initializeConfiguration(String filename){
         try {
-
-            input = new FileInputStream("./ers/src/main/java/ers/config.properties");
-            // load a properties file
+            ClassLoader classLoader = ConfigProperty.class.getClassLoader();
+            input = new FileInputStream(classLoader.getResource(filename).getFile());
             prop.load(input);
 
-            // get the property value and print it out
-
-            result = prop.getProperty(chosen);
-
-        } catch (IOException ex) {
+        } catch (IOException | NullPointerException ex) {
             ex.printStackTrace();
         } finally {
             if (input != null) {
@@ -82,7 +30,10 @@ public class ConfigProperty {
                 }
             }
         }
-        return result;
+    }
+
+    public static String getPropValue(String key){
+        return prop.getProperty(key);
     }
 
 }
