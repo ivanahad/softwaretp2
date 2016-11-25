@@ -4,6 +4,7 @@
 public class NaturalDisasterFactory {
 
     //use getShape method to get object of type shape
+    /*
     public NaturalDisaster getDisaster(String disasterType, Location location){
         if(disasterType == null){
             return null;
@@ -16,6 +17,21 @@ public class NaturalDisasterFactory {
 
         } else if(disasterType.equalsIgnoreCase("earthquake")){
             return new Earthquake(location);
+        }
+        return null;
+    }
+    */
+    public NaturalDisaster getDisaster(String disasterType, Location location){
+        if(disasterType == null){
+            return null;
+        }
+        if(disasterType.equalsIgnoreCase("earthquake")){
+            return new Earthquake(location);
+        } else if(disasterType.equalsIgnoreCase("flood")){
+            return new Flood(location);
+
+        } else if(disasterType.equalsIgnoreCase("naturaldisaster")){
+        return new NaturalDisaster(location);
         }
         return null;
     }
