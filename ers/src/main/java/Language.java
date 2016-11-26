@@ -1,8 +1,8 @@
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
-/*
+/**
+ * Created by Ivan & Eddy
  * This class allows the user to change the language used by the software. The user can choose between English and French.
  */
 public class Language {
@@ -53,7 +53,7 @@ public class Language {
 		return onlyInstance;
 	}
 
-	//creates the only instance of the object
+	//Get the only instance of the object
 	private static Language onlyInstance = new Language();
 
 	//returns the current language set
@@ -61,6 +61,8 @@ public class Language {
 		return onlyInstance.currentLanguage;
 	}
 
+
+	//
 	public static String getString(String key){
 		return onlyInstance.messages.getString(key);
 	}

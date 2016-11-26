@@ -1,5 +1,9 @@
 import java.util.Objects;
 
+/**
+ * Created by Ivan & Eddy
+ * This class represents a "Person" object, defined as a name and a number
+ */
 public class Person {
 	public String name;
 	public String number;

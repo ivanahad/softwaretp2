@@ -1,5 +1,10 @@
 import java.util.List;
 
+
+/**
+ * Created by Ivan & Eddy
+ * This class represents the current Location of a person. It extends the Location class
+ */
 public class PersonLocation extends Location{
 	public Person person;
 	

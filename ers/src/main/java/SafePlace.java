@@ -1,3 +1,8 @@
+
+/**
+ * Created by Ivan & Eddy
+ * This class represents the location of safe places. It is defined with a Location object and a description
+ */
 public class SafePlace{
 	private Location location;
 	private String description;

@@ -3,6 +3,10 @@ import java.util.*;
 /*
  * Represents a list of contacts of a person and that he might modify.
  */
+
+/**
+ * Created by Ivan & Eddy
+ */
 public class Contacts {
 	
 	public HashMap<String,Person> listContacts;
