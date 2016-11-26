@@ -14,8 +14,7 @@ public class Earthquake extends NaturalDisaster {
 		this(x, y, radius, 3.0);
 	}
 
-	@Override
-	public String GiveSafetyInstructions() {
+	public static String giveSafetyInstructions() {
 		return Language.getString("earthquake_safety_instructions");
 	}
 

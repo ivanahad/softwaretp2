@@ -7,8 +7,7 @@ public class Flood extends NaturalDisaster{
 		super(x, y, radius);
 	}
 
-	@Override
-	public String GiveSafetyInstructions() {
+	public static String giveSafetyInstructions() {
 		return Language.getString("flood_safety_instructions");
 	}
 

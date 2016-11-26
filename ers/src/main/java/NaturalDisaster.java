@@ -7,7 +7,7 @@ public class NaturalDisaster extends Location{
 		super(x, y, radius);
 	}
 	
-	public String GiveSafetyInstructions() {
+	public static String giveSafetyInstructions() {
 		return Language.getString("natural_disaster_safety_instructions");
 	}
 
