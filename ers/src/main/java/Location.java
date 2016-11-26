@@ -3,38 +3,43 @@
  * Created by Ivan & Eddy
  */
 public class Location {
-	private Coordinate coordinate;
-	private double radius;
-	
-	public Location (Coordinate coordinate) {
-		this.coordinate = coordinate;
-		this.radius = 0;
-	}
+	int x;
+	int y;
+	double radius;
 
-	public Location(Coordinate coordinate, double radius) {
-		this.coordinate = coordinate;
+	public Location(int x, int y, double radius) {
+		this.x = x;
+		this.y = y;
 		this.radius = radius;
 	}
 
-	public Location(int x, int y, double radius){
-		this.coordinate = new Coordinate(x, y);
-		this.radius = radius;
+	public Location(int x, int y) {
+		this(x, y, 0);
 	}
-	
+
 	public double distanceLocations(Location otherLocation)
 	{
-		double longueur = otherLocation.coordinate.getX()-this.coordinate.getX();
-		double largeur = otherLocation.coordinate.getY()-this.coordinate.getY();
+		double longueur = otherLocation.getX()-this.getX();
+		double largeur = otherLocation.getY()-this.getY();
 		double distance = Math.sqrt(Math.pow(longueur, 2) + Math.pow(largeur, 2));
 		return distance - this.radius - otherLocation.radius;
 	}
 
-	public Coordinate getCoordinate() {
-		return coordinate;
+
+	public int getX() {
+		return x;
 	}
 
-	public void setCoordinate(Coordinate coordinate) {
-		this.coordinate = coordinate;
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
 	}
 
 	public double getRadius() {
@@ -53,11 +58,11 @@ public class Location {
 			return false;
 
 		Location other = (Location) o;
-		return this.radius == other.radius && this.coordinate.equals(other.coordinate);
+		return this.radius == other.radius && this.x == other.getX() && this.y == other.getY();
 	}
 
 	@Override
 	public String toString(){
-		return coordinate.toString() + Language.getString("radius") + ": " + radius;
+		return "x: " + x + " y: " + y + " " + Language.getString("radius") + ": " + radius;
 	}
 }

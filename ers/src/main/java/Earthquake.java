@@ -4,24 +4,33 @@
  */
 public class Earthquake extends NaturalDisaster {
 	public double magnitude;
-	
-	public Earthquake(Location location, double magnitude) {
-		super(location);
+
+	public Earthquake(int x, int y, double radius, double magnitude) {
+		super(x, y, radius);
 		this.magnitude = magnitude;
 	}	
 
-	public Earthquake(Location location){
-		super(location);
-		this.magnitude = 3.0;
-	}
-	@Override
-	public String GiveSafetyInstructions() {
-		//source : http://www.conservation.ca.gov/index/Earthquakes/Pages/qh_earthquakes_what.aspx
-		return Language.getString("earthquake_safety_instructions");
+	public Earthquake(int x, int y, double radius){
+		this(x, y, radius, 3.0);
 	}
 
 	@Override
+	public String GiveSafetyInstructions() {
+		return Language.getString("earthquake_safety_instructions");
+	}
+
+
+	@Override
 	public String toString(){
-		return location.toString() + Language.getString("magnitude") +": " + magnitude + "( " + Language.getString("earthquake") + ")";
+		return  super.toString() + Language.getString("magnitude") +": " + magnitude +
+				"( " + Language.getString("earthquake") + ")";
+	}
+
+	@Override
+	public boolean equals(Object o){
+		if (!super.equals(o))
+			return false;
+		Earthquake other = (Earthquake) o;
+		return this.magnitude == other.magnitude;
 	}
 }

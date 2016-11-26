@@ -3,26 +3,16 @@
  * Created by Ivan & Eddy
  * This class represents the location of safe places. It is defined with a Location object and a description
  */
-public class SafePlace{
-	private Location location;
+public class SafePlace extends Location{
 	private String description;
 
-	public SafePlace(Location location, String description) {
-		this.location = location;
+	public SafePlace(int x, int y, double radius, String description) {
+		super(x, y, radius);
 		this.description = description;
 	}
 
-	public SafePlace(Location location) {
-		this.location = location;
-		this.description = Language.getString("safe_place_default_description");
-	}
-
-	public Location getLocation() {
-		return location;
-	}
-
-	public void setLocation(Location location) {
-		this.location = location;
+	public SafePlace(int x, int y, double radius) {
+		this(x, y, radius, Language.getString("safe_place_default_description"));
 	}
 
 	public String getDescription() {
@@ -35,17 +25,14 @@ public class SafePlace{
 
 	@Override
 	public boolean equals(Object o){
-		if(o == null)
+		if (!super.equals(o))
 			return false;
-		else if (getClass() != o.getClass())
-			return false;
-
 		SafePlace other = (SafePlace) o;
-		return this.location.equals(other.location) && this.description == other.description;
+		return this.description == other.description;
 	}
 
 	@Override
 	public String toString(){
-		return location.toString() + "("  + description + ")";
+		return Language.getString("safe_place") + ": " + super.toString() + "("  + description + ")";
 	}
 }

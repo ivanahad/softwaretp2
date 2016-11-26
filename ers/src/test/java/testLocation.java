@@ -7,21 +7,17 @@ public class testLocation {
 	
 	@Test
 	public void distanceLocationsWithoutRadius(){
-		Coordinate coordinate = new Coordinate(0,0);
-		Location location = new Location(coordinate);
-		
-		Coordinate coordinateOther = new Coordinate(3,4);
-		Location otherLocation = new Location(coordinateOther);
+		Location location = new Location(0, 0);
+		Location otherLocation = new Location(4, 3);
+
 		assertEquals(location.distanceLocations(otherLocation), 5.0, 0.001);	
 	}
 
 	@Test
 	public void distanceLocationsWithRadius(){
-		Coordinate coordinate = new Coordinate(0,0);
-		Location location = new Location(coordinate, 1);
+		Location location = new Location(0, 0, 1);
+		Location otherLocation = new Location(3, 4, 1);
 
-		Coordinate coordinateOther = new Coordinate(3,4);
-		Location otherLocation = new Location(coordinateOther, 1);
 		assertEquals(location.distanceLocations(otherLocation), 3.0, 0.001);
 	}
 

@@ -31,7 +31,6 @@ public class testPath {
     }
 
     public static Location createLocation(int x, int y){
-        Coordinate coordinate = new Coordinate(x,y);
-        return new Location(coordinate);
+        return new Location(x, y);
     }
 }

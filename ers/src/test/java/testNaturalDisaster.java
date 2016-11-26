@@ -6,8 +6,7 @@ public class testNaturalDisaster {
 	
 	@Test
 	public void testIsInDisaster(){
-		Coordinate coordinate = new Coordinate(1,1);
-		Location location = new Location(coordinate);
+		Location location = new Location(1, 1);
 
 		NaturalDisaster disaster = createNaturalDisaster(0, 0, 0.5);
 		assertFalse(disaster.isInDisaster(location));
@@ -31,9 +30,7 @@ public class testNaturalDisaster {
 	}
 
 	public static NaturalDisaster createNaturalDisaster(int x, int y, double radius){
-		Coordinate coordinateDisaster = new Coordinate(x,y);
-		Location disasterLocation = new Location(coordinateDisaster, radius);
-		return new NaturalDisaster(disasterLocation);
+		return new NaturalDisaster(x, y, radius);
 	}
 
 }

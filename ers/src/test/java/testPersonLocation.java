@@ -31,14 +31,12 @@ public class testPersonLocation {
     }
 
     public static Location createLocation(int x, int y){
-        Coordinate coordinate = new Coordinate(x,y);
-        return new Location(coordinate);
+        return new Location(x, y);
     }
 
     public static PersonLocation createPersonLocation(int x, int y){
         Person person = createPerson();
-        Coordinate coordinate = new Coordinate(x,y);
-        return new PersonLocation(person, coordinate);
+        return new PersonLocation(person, x, y);
     }
 
     public static Person createPerson(){

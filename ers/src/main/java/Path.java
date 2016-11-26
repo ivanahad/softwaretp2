@@ -18,20 +18,20 @@ public class Path {
 	
 	public String givePathInstructions(){
 		String path = Language.getString("path_go_to") + " ";
-		if (start.getCoordinate().getY() < end.getCoordinate().getY()){ // North
+		if (start.getY() < end.getY()){ // North
 			path = path + Language.getString("path_north");
 		}
-		else if (start.getCoordinate().getY() > end.getCoordinate().getY()){ //South
+		else if (start.getY() > end.getY()){ //South
 			path = path + Language.getString("path_south");
 		}
-		if (start.getCoordinate().getX() < end.getCoordinate().getX()){ // East
+		if (start.getX() < end.getX()){ // East
 			path = path + Language.getString("path_east");
 		}
-		else if (start.getCoordinate().getX() > end.getCoordinate().getX()){ // West
+		else if (start.getX() > end.getX()){ // West
 			path = path + Language.getString("path_west");
 		}
-		if (start.getCoordinate().getY() == end.getCoordinate().getY() &&
-				start.getCoordinate().getX() == end.getCoordinate().getX()){
+		if (start.getY() == end.getY() &&
+				start.getX() == end.getX()){
 			path = Language.getString("path_reached_destination");
 		}
 

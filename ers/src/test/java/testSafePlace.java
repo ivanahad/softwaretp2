@@ -21,7 +21,6 @@ public class testSafePlace {
     }
 
     public static SafePlace createSafePlace(int x, int y, double radius, String description){
-        Location location = new Location(x, y, radius);
-        return new SafePlace(location, description);
+        return new SafePlace(x, y, radius, description);
     }
 }

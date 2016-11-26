@@ -7,15 +7,14 @@ import java.util.List;
  */
 public class PersonLocation extends Location{
 	public Person person;
-	
-	public PersonLocation(Person person, Coordinate coordinate){
-		super(coordinate);
+
+	public PersonLocation(Person person, int x, int y, double radius){
+		super(x, y, radius);
 		this.person = person;
 	}
 
-	public PersonLocation(Person person, Coordinate coordinate, double radius){
-		super(coordinate, radius);
-		this.person = person;
+	public PersonLocation(Person person, int x, int y){
+		this(person, x, y, 0);
 	}
 
 	public Location nearestLocations(List<Location> locations){
