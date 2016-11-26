@@ -3,7 +3,7 @@
  */
 public class LocationFactory {
 
-    public Location getLocation(String locationType, int x, int y, double radius){
+    public static Location getLocation(String locationType, int x, int y, double radius){
         if(locationType == null){
             return null;
         }
@@ -11,16 +11,16 @@ public class LocationFactory {
             return new Earthquake(x, y, radius);
         } else if(locationType.equalsIgnoreCase("flood")){
             return new Flood(x, y, radius);
-        } else if(locationType.equalsIgnoreCase("naturaldisaster")){
+        } else if(locationType.equalsIgnoreCase("natural_disaster")){
             return new NaturalDisaster(x, y, radius);
-        } else if(locationType.equalsIgnoreCase("safeplace")){
+        } else if(locationType.equalsIgnoreCase("safe_place")){
             return new SafePlace(x, y, radius);
         } else {
             return new Location(x, y, radius);
         }
     }
 
-    public Location getLocation(String disasterType, int x, int y){
-        return getLocation(disasterType, x, y, 0);
+    public static Location getLocation(String locationType, int x, int y){
+        return getLocation(locationType, x, y, 0);
     }
 }

@@ -20,7 +20,7 @@ public class testInterpreter {
 
     @Test
     public void testAddDangerousZone(){
-        String command = "dangerous_zone add 4 5 10";
+        String command = "natural_disaster add 4 5 10";
         Interpreter.interpret(command);
         Assert.assertEquals(Map.getNaturalDisasters().size(), 1);
 
@@ -33,7 +33,7 @@ public class testInterpreter {
         NaturalDisaster naturalDisaster = new NaturalDisaster(4, 5, 10);
         Map.addNaturalDisaster(naturalDisaster);
 
-        String command = "dangerous_zone remove 4 5 10";
+        String command = "natural_disaster remove 4 5 10";
         Interpreter.interpret(command);
         Assert.assertEquals(Map.getNaturalDisasters().size(), 0);
     }
