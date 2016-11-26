@@ -4,6 +4,7 @@
 public class Controller {
     public static String getSafetyInstructions() {
         String result = NaturalDisaster.giveSafetyInstructions() + "\n";
+        System.out.println(getEmergencyTypesEnabled());
         if(getHasEarthquakeEnabled().interpret(getEmergencyTypesEnabled()))
             result += Earthquake.giveSafetyInstructions() + "\n";
         if(getHasFloodEnabled().interpret(getEmergencyTypesEnabled()))
@@ -26,6 +27,10 @@ public class Controller {
         if(!getHasInformLocationsEnbaled().interpret(getInformLocalisationsEnbaled()))
             return Map.getMap();
         return null;
+    }
+
+    public static void processCommand(String command) {
+        Interpreter.interpret(command);
     }
 
     private static String getGuidingUserEnabled(){
@@ -56,6 +61,5 @@ public class Controller {
     private static Expression getHasInformLocationsEnbaled(){
         return new TerminalExpression("default");
     }
-
 
 }
