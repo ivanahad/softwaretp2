@@ -8,8 +8,7 @@ public class testController {
     @Test
     public void testGetSafetyInstructions(){
         String actual = Controller.getSafetyInstructions();
-        String expected = NaturalDisaster.giveSafetyInstructions() + "\n" + Earthquake.giveSafetyInstructions() + "\n" +
-                Flood.giveSafetyInstructions();
+        String expected = NaturalDisaster.giveSafetyInstructions() + "\n";
         Assert.assertEquals(expected, actual);
     }
 
