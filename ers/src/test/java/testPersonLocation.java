@@ -12,11 +12,11 @@ import static org.junit.Assert.assertEquals;
 public class testPersonLocation {
     @Test
     public void testNearestLocations(){
-        Location location1 = createLocation(1, 1);
-        Location location2 = createLocation(4, 5);
-        Location location3 = createLocation(-4, -9);
+        SafePlace location1 = createLocation(1, 1);
+        SafePlace location2 = createLocation(4, 5);
+        SafePlace location3 = createLocation(-4, -9);
 
-        LinkedList<Location> locations = new LinkedList<Location>();
+        LinkedList<SafePlace> locations = new LinkedList<SafePlace>();
         locations.add(location1);
         locations.add(location2);
         locations.add(location3);
@@ -30,8 +30,8 @@ public class testPersonLocation {
 
     }
 
-    public static Location createLocation(int x, int y){
-        return new Location(x, y);
+    public static SafePlace createLocation(int x, int y){
+        return new SafePlace(x, y, 0);
     }
 
     public static PersonLocation createPersonLocation(int x, int y){

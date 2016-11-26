@@ -28,4 +28,8 @@ public class Person {
 		
 		return Objects.equals(name, person.name) && Objects.equals(number, person.number);
 	}
+
+	public String toString(){
+		return this.name;
+	}
 }

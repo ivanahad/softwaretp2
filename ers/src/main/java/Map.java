@@ -10,7 +10,7 @@ public class Map {
     private PersonLocation personLocation;
 
     private Map(){
-        this.personLocation = null;
+        this.personLocation = new PersonLocation(new Person("You", "null"), 0, 0, 0);
         this.naturalDisasters = new LinkedList<>();
         this.safePlaces = new LinkedList<>();
     }
@@ -42,7 +42,7 @@ public class Map {
     public String personLocationToString(){
         if(personLocation == null)
             return "";
-        return Language.getString("your_position") + personLocation.toString() + "\n";
+        return Language.getString("your_position") + ":  " +  personLocation.toString() + "\n";
     }
 
     public static void addNaturalDisaster(NaturalDisaster naturalDisaster){

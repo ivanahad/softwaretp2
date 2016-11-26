@@ -21,7 +21,7 @@ public class testController {
     @Test
     public void testGetMap(){
         String actual = Controller.getMap();
-        Assert.assertNull(actual);
+        Assert.assertNotNull(actual);
 
     }
 }

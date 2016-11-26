@@ -12,14 +12,19 @@ public class Controller {
     }
 
     public static String getShortestPathToSafety() {
-        if(!getHasGuidingUserEnabled().interpret(getGuidingUserEnabled()))
-            return null;
+        if(!getHasGuidingUserEnabled().interpret(getGuidingUserEnabled())){
+            SafePlace nearestLocation =  Map.getPersonLocation().nearestLocations((Map.getSafePlaces()));
+            if(nearestLocation != null){
+                Path path = new Path(Map.getPersonLocation(), nearestLocation);
+                return path.givePathInstructions();
+            }
+        }
         return null;
     }
 
     public static String getMap() {
         if(!getHasInformLocationsEnbaled().interpret(getInformLocalisationsEnbaled()))
-            return null;
+            return Map.getMap();
         return null;
     }
 

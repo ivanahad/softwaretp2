@@ -17,10 +17,10 @@ public class PersonLocation extends Location{
 		this(person, x, y, 0);
 	}
 
-	public Location nearestLocations(List<Location> locations){
+	public SafePlace nearestLocations(List<SafePlace> locations){
 		double minDistance = Double.MAX_VALUE;
-        Location nearestLocation = null;
-        for (Location location : locations){
+        SafePlace nearestLocation = null;
+        for (SafePlace location : locations){
             double distance = this.distanceLocations(location);
             if (distance < minDistance){
                 minDistance = distance;
