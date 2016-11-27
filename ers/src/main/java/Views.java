@@ -35,7 +35,8 @@ public class Views {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Type a command:");
         String command = scanner.nextLine();
-        Controller.processCommand(command);
+        String response = Controller.processCommand(command);
+        display(response);
     }
 
 

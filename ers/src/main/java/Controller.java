@@ -4,16 +4,15 @@
 public class Controller {
     public static String getSafetyInstructions() {
         String result = NaturalDisaster.giveSafetyInstructions() + "\n";
-        System.out.println(getEmergencyTypesEnabled());
-        if(getHasEarthquakeEnabled().interpret(getEmergencyTypesEnabled()))
+        if(Expressions.containsEarthquake().interpret(getEmergencyTypesOption()))
             result += Earthquake.giveSafetyInstructions() + "\n";
-        if(getHasFloodEnabled().interpret(getEmergencyTypesEnabled()))
+        if(Expressions.containsFlood().interpret(getEmergencyTypesOption()))
             result += Flood.giveSafetyInstructions();
         return result;
     }
 
     public static String getShortestPathToSafety() {
-        if(!getHasGuidingUserEnabled().interpret(getGuidingUserEnabled())){
+        if(!Expressions.containsDefault().interpret(getGuidingUserEnabled())){
             SafePlace nearestLocation =  Map.getPersonLocation().nearestLocations((Map.getSafePlaces()));
             if(nearestLocation != null){
                 Path path = new Path(Map.getPersonLocation(), nearestLocation);
@@ -24,13 +23,20 @@ public class Controller {
     }
 
     public static String getMap() {
-        if(!getHasInformLocationsEnbaled().interpret(getInformLocalisationsEnbaled()))
+        if(!Expressions.containsDefault().interpret(getInformLocalisationsOption()))
             return Map.getMap();
         return null;
     }
 
-    public static void processCommand(String command) {
+    public static String processCommand(String command) {
+        if(!(Expressions.containsFlood().interpret(command) && Expressions.containsFlood().interpret(getEmergencyTypesOption())))
+            return "Denied";
+        if(!(Expressions.containsEarthquake().interpret(command) && Expressions.containsEarthquake().interpret(getEmergencyTypesOption())))
+            return "Denied";
+        if(!(Expressions.getHasLanguageEnabled().interpret(command) && Expressions.getYesExpression().interpret(getSetLanguageOption())))
+            return "Denied";
         Interpreter.interpret(command);
+        return "Ok";
     }
 
     private static String getGuidingUserEnabled(){
@@ -38,28 +44,16 @@ public class Controller {
 
     }
 
-    private static String getEmergencyTypesEnabled() {
+    private static String getEmergencyTypesOption() {
         return ConfigProperty.getPropValue("emergencyType");
     }
 
-    private static String getInformLocalisationsEnbaled() {
+    private static String getInformLocalisationsOption() {
         return ConfigProperty.getPropValue("informLocalisation");
     }
 
-    private static Expression getHasEarthquakeEnabled(){
-        return new TerminalExpression("earthquake");
-    }
-
-    private static Expression getHasFloodEnabled(){
-        return new TerminalExpression("flood");
-    }
-
-    private static Expression getHasGuidingUserEnabled(){
-        return new TerminalExpression("default");
-    }
-
-    private static Expression getHasInformLocationsEnbaled(){
-        return new TerminalExpression("default");
+    private static String getSetLanguageOption(){
+        return ConfigProperty.getPropValue("letUserChooseLanguage");
     }
 
 }

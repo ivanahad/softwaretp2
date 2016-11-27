@@ -4,9 +4,9 @@
 public class Interpreter {
 
     public static void interpret(String command){
-        if(getIsAddLocationExpression().interpret(command)){
+        if(Expressions.getIsAddLocationExpression().interpret(command)){
             addLocationToMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
-        } else if (getIsRemoveLocationExpression().interpret(command)){
+        } else if (Expressions.getIsRemoveLocationExpression().interpret(command)){
 
             removeLocationFromMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
         }
@@ -47,44 +47,5 @@ public class Interpreter {
                 Map.removeNaturalDisaster((NaturalDisaster) location);
                 break;
         }
-    }
-
-    private static Expression getIsAddLocationExpression(){
-        return new AndExpression(getIsLocation(), getIsAddExpression());
-    }
-
-    private static Expression getIsRemoveLocationExpression(){
-        return new AndExpression(getIsLocation(), getIsRemoveExpression());
-    }
-
-    private static Expression getIsLocation(){
-        return new OrExpression(getIsNaturalDisasterExpression(), getIsSafePlaceExpression());
-    }
-
-    private static Expression getIsNaturalDisasterExpression(){
-        Expression naturalDisaster = new TerminalExpression("natural_disaster");
-        Expression flood = new TerminalExpression("flood");
-        Expression earthquake = new TerminalExpression("earthquake");
-        return new OrExpression(new Expression[]{naturalDisaster, flood, earthquake});
-    }
-
-    private static Expression getIsSafePlaceExpression(){
-        Expression safeplace = new TerminalExpression("safe_place");
-        return safeplace;
-    }
-
-    private static Expression getIsAddExpression(){
-        Expression add = new TerminalExpression("add");
-        return add;
-    }
-
-    private static Expression getIsRemoveExpression(){
-        Expression remove = new TerminalExpression("remove");
-        return remove;
-    }
-
-    private static Expression getIsSetExpression(){
-        Expression set = new TerminalExpression("set");
-        return set;
     }
 }
