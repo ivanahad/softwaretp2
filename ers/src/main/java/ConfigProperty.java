@@ -10,14 +10,6 @@ import java.util.*;
  */
 public class ConfigProperty {
 
-    private Properties prop;
-    private InputStream input;
-
-    private ConfigProperty(){
-        prop = new Properties();
-        input = null;
-    }
-
     //creates the only instance of the object
     private static ConfigProperty onlyInstance = new ConfigProperty();
 
@@ -26,31 +18,41 @@ public class ConfigProperty {
         return onlyInstance;
     }
 
-    public static void initializeConfiguration(){
+    public static String getPropValue(String key){
+        return onlyInstance.prop.getProperty(key);
+    }
+
+
+    private Properties prop;
+
+    private ConfigProperty(){
+        prop = new Properties();
+        initializeConfiguration();
+    }
+
+
+    private void initializeConfiguration(){
         initializeConfiguration("config.properties");
     }
 
-    public static void initializeConfiguration(String filename){
+    private void initializeConfiguration(String filename){
+        InputStream input = null;
         try {
             ClassLoader classLoader = ConfigProperty.class.getClassLoader();
-            onlyInstance.input = new FileInputStream(classLoader.getResource(filename).getFile());
-            onlyInstance.prop.load(onlyInstance.input);
+            input = new FileInputStream(classLoader.getResource(filename).getFile());
+            prop.load(input);
 
         } catch (IOException | NullPointerException ex) {
             ex.printStackTrace();
         } finally {
-            if (onlyInstance.input != null) {
+            if (input != null) {
                 try {
-                    onlyInstance.input.close();
+                    input.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
-    }
-
-    public static String getPropValue(String key){
-        return onlyInstance.prop.getProperty(key);
     }
 
 }

@@ -14,8 +14,6 @@ public class testConfig {
 
     @Test
     public void testGetPropertyValue() throws IOException {
-        ConfigProperty.initializeConfiguration("config.properties");
-
         assertEquals(ConfigProperty.getPropValue("letUserChooseLanguage"), "no");
         assertEquals(ConfigProperty.getPropValue("guideUserToSafePlace"), "textual");
         assertNull(ConfigProperty.getPropValue("invalidKey"));
