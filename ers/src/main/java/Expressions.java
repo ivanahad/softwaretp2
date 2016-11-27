@@ -15,8 +15,8 @@ public class Expressions {
         return new AndExpression(new Expression[]{getIsSetExpression(), getHasLanguageEnabled()});
     }
 
-    public static Expression getIsSetCenterExpression(){
-        return new AndExpression(new Expression[]{getIsLocation(), getIsSetExpression(), getCenterExpression()});
+    public static Expression getIsUpdateExpression(){
+        return new AndExpression(new Expression[]{getIsLocation(), getIsSetExpression(), getNewExpression()});
     }
 
     public static Expression getIsSetRadiusExpression(){
@@ -58,8 +58,8 @@ public class Expressions {
         return set;
     }
 
-    public static Expression getCenterExpression(){
-        Expression center = new TerminalExpression("center");
+    public static Expression getNewExpression(){
+        Expression center = new TerminalExpression("new");
         return center;
     }
 

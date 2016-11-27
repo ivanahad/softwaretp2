@@ -22,9 +22,10 @@ public class Language {
 
 
 	public static void switchLanguage(String newLanguage){
-		if (onlyInstance.isSupported(newLanguage))
+		if (onlyInstance.isSupported(newLanguage)){
 			onlyInstance.currentLanguage = newLanguage;
 			onlyInstance.updateResourceBundle(newLanguage);
+		}
 	}
 
 	private void updateResourceBundle(String language){
@@ -42,7 +43,7 @@ public class Language {
 
 	private boolean isSupported(String language){
 		for(String lang : supportedLanguages){
-			if(lang == language)
+			if(Objects.equals(lang, language))
 				return true;
 		}
 		return false;

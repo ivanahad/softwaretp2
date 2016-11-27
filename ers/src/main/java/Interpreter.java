@@ -8,11 +8,7 @@ public class Interpreter {
             addLocationToMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
         } else if(Expressions.getIsRemoveLocationExpression().interpret(command)){
             removeLocationFromMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
-        } else if(Expressions.getIsSetCenterExpression().interpret(command)){
-            removeLocationFromMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
-            String newCommand = transformSetCommandToAdd(command);
-            addLocationToMap(getLocationTypeFromCommand(newCommand), getLocationFromCommand(newCommand));
-        } else if(Expressions.getIsSetRadiusExpression().interpret(command)){
+        } else if(Expressions.getIsUpdateExpression().interpret(command)){
             removeLocationFromMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
             String newCommand = transformSetCommandToAdd(command);
             addLocationToMap(getLocationTypeFromCommand(newCommand), getLocationFromCommand(newCommand));
@@ -78,6 +74,6 @@ public class Interpreter {
 
     private static String transformSetCommandToAdd(String command){
         String arguments[] = command.split(" ");
-        return arguments[0] + " " + arguments[1] + " " + arguments[5] + " " + arguments[6] + " " + arguments[7];
+        return arguments[0] + " add " + arguments[6] + " " + arguments[7] + " " + arguments[8];
     }
 }

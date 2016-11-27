@@ -57,4 +57,47 @@ public class testInterpreter {
         Interpreter.interpret(command);
         Assert.assertEquals(Map.getSafePlaces().size(), 0);
     }
+
+    @Test
+    public void testSwitchLanguage(){
+        String command = "language set fr";
+        Interpreter.interpret(command);
+        Assert.assertEquals(Language.getCurrentLanguage(), "fr");
+        Language.switchLanguage("en");
+    }
+
+    @Test
+    public void testSetEarthQuakeMagnitude(){
+        String command = "earthquake set 4 5 10 15 scale";
+        Interpreter.interpret(command);
+
+        Assert.assertEquals(Map.getNaturalDisasters().size(), 1);
+        Earthquake earthquake = (Earthquake) Map.getNaturalDisasters().getFirst();
+        Assert.assertEquals(earthquake.magnitude, 15, 0.001);
+    }
+
+    @Test
+    public void testSetLocationCenter(){
+        Map.addSafePlace(new SafePlace(4, 5, 10));
+        String command = "safe_place set 4 5 10 new 8 9 10";
+        Interpreter.interpret(command);
+
+        Assert.assertEquals(Map.getSafePlaces().size(), 1);
+        SafePlace safePlace = Map.getSafePlaces().getFirst();
+        Assert.assertEquals(safePlace.getX(), 8);
+        Assert.assertEquals(safePlace.getY(), 9);
+
+    }
+
+    @Test
+    public void testSetLocationRadius(){
+        Map.addSafePlace(new SafePlace(4, 5, 10));
+        String command = "safe_place set 4 5 10 new 4 5 15";
+        Interpreter.interpret(command);
+
+        Assert.assertEquals(Map.getSafePlaces().size(), 1);
+        SafePlace safePlace = Map.getSafePlaces().getFirst();
+        Assert.assertEquals(safePlace.getRadius(), 15, 0.001);
+
+    }
 }
