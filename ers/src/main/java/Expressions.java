@@ -11,6 +11,10 @@ public class Expressions {
         return new AndExpression(getIsLocation(), getIsRemoveExpression());
     }
 
+    public static Expression getIsSetLanguageExpression(){
+        return new AndExpression(new Expression[]{getIsSetExpression(), getHasLanguageEnabled()});
+    }
+
     public static Expression getIsSetCenterExpression(){
         return new AndExpression(new Expression[]{getIsLocation(), getIsSetExpression(), getCenterExpression()});
     }

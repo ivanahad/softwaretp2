@@ -19,7 +19,15 @@ public class Interpreter {
         } else if(Expressions.getIsSetScaleExpression().interpret(command)){
             removeLocationFromMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
             addLocationToMap(getLocationTypeFromCommand(command), getEarthquakeFromCommand(command));
+        } else if(Expressions.getIsSetLanguageExpression().interpret(command)){
+            switchLanguageFromCommand(command);
         }
+    }
+
+    private static void switchLanguageFromCommand(String command){
+        String arguments[] = command.split(" ");
+        String newLanguage = arguments[2];
+        Language.switchLanguage(newLanguage);
     }
 
     private static Location getEarthquakeFromCommand(String command){
