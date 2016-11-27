@@ -6,10 +6,29 @@ public class Interpreter {
     public static void interpret(String command){
         if(Expressions.getIsAddLocationExpression().interpret(command)){
             addLocationToMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
-        } else if (Expressions.getIsRemoveLocationExpression().interpret(command)){
-
+        } else if(Expressions.getIsRemoveLocationExpression().interpret(command)){
             removeLocationFromMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
+        } else if(Expressions.getIsSetCenterExpression().interpret(command)){
+            removeLocationFromMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
+            String newCommand = transformSetCommandToAdd(command);
+            addLocationToMap(getLocationTypeFromCommand(newCommand), getLocationFromCommand(newCommand));
+        } else if(Expressions.getIsSetRadiusExpression().interpret(command)){
+            removeLocationFromMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
+            String newCommand = transformSetCommandToAdd(command);
+            addLocationToMap(getLocationTypeFromCommand(newCommand), getLocationFromCommand(newCommand));
+        } else if(Expressions.getIsSetScaleExpression().interpret(command)){
+            removeLocationFromMap(getLocationTypeFromCommand(command), getLocationFromCommand(command));
+            addLocationToMap(getLocationTypeFromCommand(command), getEarthquakeFromCommand(command));
         }
+    }
+
+    private static Location getEarthquakeFromCommand(String command){
+        String arguments[] = command.split(" ");
+        int x = Integer.parseInt(arguments[2]);
+        int y = Integer.parseInt(arguments[3]);
+        int radius = Integer.parseInt(arguments[4]);
+        int magnitude = Integer.parseInt(arguments[5]);
+        return new Earthquake(x, y, radius, magnitude);
 
     }
 
@@ -47,5 +66,10 @@ public class Interpreter {
                 Map.removeNaturalDisaster((NaturalDisaster) location);
                 break;
         }
+    }
+
+    private static String transformSetCommandToAdd(String command){
+        String arguments[] = command.split(" ");
+        return arguments[0] + " " + arguments[1] + " " + arguments[5] + " " + arguments[6] + " " + arguments[7];
     }
 }

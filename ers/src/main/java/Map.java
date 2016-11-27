@@ -46,6 +46,7 @@ public class Map {
     }
 
     public static void addNaturalDisaster(NaturalDisaster naturalDisaster){
+        onlyInstance.naturalDisasters.remove(naturalDisaster);
         onlyInstance.naturalDisasters.add(naturalDisaster);
     }
 

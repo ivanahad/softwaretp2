@@ -25,11 +25,4 @@ public class Earthquake extends NaturalDisaster {
 				"( " + Language.getString("earthquake") + ")";
 	}
 
-	@Override
-	public boolean equals(Object o){
-		if (!super.equals(o))
-			return false;
-		Earthquake other = (Earthquake) o;
-		return this.magnitude == other.magnitude;
-	}
 }

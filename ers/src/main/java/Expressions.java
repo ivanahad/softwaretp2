@@ -11,6 +11,18 @@ public class Expressions {
         return new AndExpression(getIsLocation(), getIsRemoveExpression());
     }
 
+    public static Expression getIsSetCenterExpression(){
+        return new AndExpression(new Expression[]{getIsLocation(), getIsSetExpression(), getCenterExpression()});
+    }
+
+    public static Expression getIsSetRadiusExpression(){
+        return new AndExpression(new Expression[]{getIsLocation(), getIsSetExpression(), getRadiusExpression()});
+    }
+
+    public static Expression getIsSetScaleExpression(){
+        return new AndExpression(new Expression[]{containsEarthquake(), getIsSetExpression(), getScaleExpression()});
+    }
+
     public static Expression getIsLocation(){
         return new OrExpression(getIsNaturalDisasterExpression(), getIsSafePlaceExpression());
     }
@@ -40,6 +52,21 @@ public class Expressions {
     public static Expression getIsSetExpression(){
         Expression set = new TerminalExpression("set");
         return set;
+    }
+
+    public static Expression getCenterExpression(){
+        Expression center = new TerminalExpression("center");
+        return center;
+    }
+
+    public static Expression getRadiusExpression(){
+        Expression radius = new TerminalExpression("radius");
+        return radius;
+    }
+
+    public static Expression getScaleExpression(){
+        Expression scale = new TerminalExpression("scale");
+        return scale;
     }
 
     static Expression containsEarthquake(){
