@@ -1,5 +1,5 @@
 # softwaretp2
-Dependecies:
+# Dependecies
 These libraries must be added to your project. 
 - Junit: 
 <dependency>
@@ -11,7 +11,7 @@ These libraries must be added to your project.
 
 To launch the tests, just run the directory "test" as a whole or each of its file separately.
 
-*Property File*
+ #Property File
 The configuration file located in *src/main/java/resources* accept the following properties:
 - emergencyType=default|[flood , earthquake]
 - letUserChooseLanguage=yes|no
@@ -28,7 +28,7 @@ guidingUser=no
 
 This configuration will only treat generic natural disaster (no particular type) and floods. It will not let the user the possibility to change the language. Also it will not display the map with the different locations of natural disasters and safe places and also it will not inform of the path to the nearest safe place.
 
-*Interpreter*
+# Interpreter
 The interpreter accepts the following set of commands:
 - location add x y radius 
 - location remove x y radius
