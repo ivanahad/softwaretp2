@@ -12,7 +12,7 @@ These libraries must be added to your project.
 To launch the tests, just run the directory "test" as a whole or each of its file separately.
 
 *Property File*
-The configuration file located in src/main/java/resources accept the following properties:
+The configuration file located in *src/main/java/resources* accept the following properties:
 - emergencyType=default|[flood , earthquake]
 - letUserChooseLanguage=yes|no
 - informLocalisation=yes|no
@@ -41,5 +41,9 @@ where :
 - x, y are integers
 - radius is a double
 - magnitude is an integer
+
+"**add**" is used when adding a location. "**remove**" when needing to remove a location. The command "**set**" is used for updating coordinates or raidus of a location. It can also be used to set the language or to set the scale of an earthquake.
+
+The tests present in *src/test/java/testInterpreter.java* are good examples of how to use the interpreter.
 
 
