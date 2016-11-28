@@ -11,7 +11,7 @@ These libraries must be added to your project.
 
 To launch the tests, just run the directory "test" as a whole or each of its file separately.
 
- #Property File
+ # Property File
 The configuration file located in *src/main/java/resources* accept the following properties:
 - emergencyType=default|[flood , earthquake]
 - letUserChooseLanguage=yes|no
