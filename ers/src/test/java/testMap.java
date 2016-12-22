@@ -12,11 +12,14 @@ import org.junit.Test;
 import java.util.LinkedList;
 
 public class testMap {
+
+    /*
     @Before
     public void setUp(){
         PersonLocation personLocation = testPersonLocation.createPersonLocation(0, 0);
         Map.setPersonLocation(personLocation);
     }
+    */
 
     @After
     public void tearDown(){

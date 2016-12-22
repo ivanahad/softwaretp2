@@ -7,6 +7,10 @@ public class Flood extends NaturalDisaster{
 		super(x, y, radius);
 	}
 
+	public Flood(Location location){
+		super(location);
+	}
+
 	public static String giveSafetyInstructions() {
 		return Language.getString("flood_safety_instructions");
 	}

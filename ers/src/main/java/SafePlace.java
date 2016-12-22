@@ -3,12 +3,30 @@
  * Created by Ivan & Eddy
  * This class represents the location of safe places. It is defined with a Location object and a description
  */
-public class SafePlace extends Location{
+public class SafePlace{
 	private String description;
+	public Location location;
+	private int id;
+	public static int count=0;
 
 	public SafePlace(int x, int y, double radius, String description) {
-		super(x, y, radius);
+		this.location = new Location(x, y, radius);
 		this.description = description;
+		id = count++;
+	}
+
+	public SafePlace(Location location, String description){
+		this.location=location;
+		this.description=description;
+		id = count++;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public Location getLocation() {
+		return location;
 	}
 
 	public SafePlace(int x, int y, double radius) {
@@ -18,6 +36,7 @@ public class SafePlace extends Location{
 	public String getDescription() {
 		return description;
 	}
+
 
 	public void setDescription(String description) {
 		this.description = description;

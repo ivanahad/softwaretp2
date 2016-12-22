@@ -36,13 +36,13 @@ public class Interpreter {
 
     }
 
-    private static Location getLocationFromCommand(String command){
+    private static NaturalDisaster getLocationFromCommand(String command){
         String arguments[] = command.split(" ");
         String type = arguments[0];
         int x = Integer.parseInt(arguments[2]);
         int y = Integer.parseInt(arguments[3]);
         int radius = Integer.parseInt(arguments[4]);
-        return LocationFactory.getLocation(type, x, y, radius);
+        return NDFactory.getND(type, x, y, radius);
     }
 
     private static String getLocationTypeFromCommand(String command){

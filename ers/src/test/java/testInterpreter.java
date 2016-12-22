@@ -8,10 +8,12 @@ import org.junit.Test;
  */
 public class testInterpreter {
     @Before
+    /*
     public void setUp(){
         PersonLocation personLocation = testPersonLocation.createPersonLocation(0, 0);
         Map.setPersonLocation(personLocation);
     }
+    */
 
     @After
     public void tearDown(){

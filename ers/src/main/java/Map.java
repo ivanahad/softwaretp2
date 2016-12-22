@@ -7,10 +7,8 @@ public class Map {
     private static Map onlyInstance = new Map();
     private LinkedList<NaturalDisaster> naturalDisasters;
     private LinkedList<SafePlace> safePlaces;
-    private PersonLocation personLocation;
 
     private Map(){
-        this.personLocation = new PersonLocation(new Person("You", "null"), 0, 0, 0);
         this.naturalDisasters = new LinkedList<>();
         this.safePlaces = new LinkedList<>();
     }
@@ -40,9 +38,9 @@ public class Map {
     }
 
     public String personLocationToString(){
-        if(personLocation == null)
+        if(User.getInstance() == null)
             return "";
-        return Language.getString("your_position") + ":  " +  personLocation.toString() + "\n";
+        return Language.getString("your_position") + ":  " +  User.getInstance().toString() + "\n";
     }
 
     public static void addNaturalDisaster(NaturalDisaster naturalDisaster){
@@ -62,12 +60,12 @@ public class Map {
         onlyInstance.safePlaces.remove(safePlace);
     }
 
-    public static PersonLocation getPersonLocation() {
-        return onlyInstance.personLocation;
+    public static Location getPersonLocation() {
+        return User.getLocation();
     }
 
-    public static void setPersonLocation(PersonLocation personLocation) {
-        onlyInstance.personLocation = personLocation;
+    public static void setUserLocation(Location userLocation) {
+        User.modifLocation(userLocation);
     }
 
     public static LinkedList<NaturalDisaster> getNaturalDisasters() {
