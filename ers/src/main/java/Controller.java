@@ -9,6 +9,7 @@ public class Controller {
         if(Expressions.containsFlood().interpret(getEmergencyTypesOption()))
             result += Flood.giveSafetyInstructions();
         return result;
+
     }
 
     public static String getShortestPathToSafety() {
