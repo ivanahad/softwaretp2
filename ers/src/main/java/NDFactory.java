@@ -11,7 +11,7 @@ public class NDFactory extends AbstractFactory{
 
         int x = (Integer) args[0];
         int y = (Integer) args[1];
-        double radius = (Integer) args[2];
+        double radius = (Double) args[2];
         double magnitude = 3.0;
         if(args.length == 4)
             magnitude = (Double) args[3];
@@ -20,7 +20,7 @@ public class NDFactory extends AbstractFactory{
             return new Earthquake(x, y, radius, magnitude);
         } else if(type.equalsIgnoreCase("flood")){
             return new Flood(x, y, radius);
-        } else if(type.equalsIgnoreCase("natural_disaster")){
+        } else if(type.equalsIgnoreCase("naturaldisaster")){
             return new NaturalDisaster(x, y, radius);
         }
         else{

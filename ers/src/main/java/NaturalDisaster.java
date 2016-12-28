@@ -39,6 +39,6 @@ public class NaturalDisaster{
 
 	@Override
 	public String toString(){
-		return Language.getString("natural_disaster") + ": " + super.toString();
+		return Language.getString("natural_disaster") + ": " + location.toString();
 	}
 }

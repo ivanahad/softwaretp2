@@ -10,18 +10,21 @@ import static org.junit.Assert.assertEquals;
 
 public class testNDFactory {
 
+
     @Test
     public void testGetFlood(){
+        NDFactory factory = new NDFactory();
         Flood expected = new Flood(1, 1, 0);
-        Flood actual = (Flood) NDFactory.getND("flood", 1, 1, 0);
+        Flood actual = (Flood) factory.getNaturalDisaster("flood", 1, 1, 0);
 
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetEarthquake(){
+        NDFactory factory = new NDFactory();
         Earthquake expected = new Earthquake(1, 1, 0);
-        Earthquake actual = (Earthquake) NDFactory.getND("earthquake", 1, 1, 0);
+        Earthquake actual = (Earthquake) factory.getNaturalDisaster("earthquake", 1, 1, 0);
 
         assertEquals(expected, actual);
     }
@@ -29,8 +32,9 @@ public class testNDFactory {
 
     @Test
     public void testGetNaturalDisaster(){
+        NDFactory factory = new NDFactory();
         NaturalDisaster expected = new NaturalDisaster(1, 1, 0);
-        NaturalDisaster actual = (NaturalDisaster) NDFactory.getND("natural_disaster", 1, 1, 0);
+        NaturalDisaster actual = (NaturalDisaster) factory.getNaturalDisaster("natural_disaster", 1, 1, 0);
 
         assertEquals(expected, actual);
     }

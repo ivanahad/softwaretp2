@@ -27,6 +27,10 @@ public class Map {
         User.modifLocation(userLocation);
     }
 
+    public static LinkedList<Object> getLocations(){
+        return onlyInstance.locations;
+    }
+
 
     public static String getMap(){
         return onlyInstance.toString();

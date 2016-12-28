@@ -14,7 +14,7 @@ public class SafePlaceFactory extends AbstractFactory {
         }
         int x = (Integer) args[0];
         int y = (Integer) args[1];
-        double radius = (Integer) args[2];
+        double radius = (Double) args[2];
 
         if(type.equalsIgnoreCase("safeplacee")){
             return new SafePlace(x, y, radius);
