@@ -8,27 +8,20 @@ public class testPath {
     public void testgivePathInstructions(){
         Location location1 = createLocation(0, 0);
         Location location2 = createLocation(0, 5);
-        Path path = createPath(location1, location2);
 
-        assertEquals(path.givePathInstructions(), "Go in direction of N");
+        assertEquals(Path.givePathInstructions(location1, location2), "Go in direction of N");
 
         location1 = createLocation(1, 4);
         location2 = createLocation(6, 5);
-        path = createPath(location1, location2);
 
-        assertEquals(path.givePathInstructions(), "Go in direction of NE");
+        assertEquals(Path.givePathInstructions(location1, location2), "Go in direction of NE");
 
         location1 = createLocation(1, 4);
-        path = createPath(location1, location1);
 
-        assertEquals(path.givePathInstructions(), "You've reached the destination!");
+        assertEquals(Path.givePathInstructions(location1, location1), "You've reached the destination!");
 
     }
 
-    public Path createPath(Location location1, Location location2){
-
-        return new Path(location1, location2);
-    }
 
     public static Location createLocation(int x, int y){
         return new Location(x, y);

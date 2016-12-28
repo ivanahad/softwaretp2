@@ -1,9 +1,12 @@
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 /**
  * Created by ndizera on 11/26/16.
  */
 public class Controller {
     public static String getSafetyInstructions() {
-        //TODO controller delegates permission
+        //TODO
         String result = NaturalDisaster.giveSafetyInstructions() + "\n";
             result += Earthquake.giveSafetyInstructions() + "\n";
             result += Flood.giveSafetyInstructions();
@@ -12,12 +15,14 @@ public class Controller {
     }
 
     public static String getShortestPathToSafety() {
-
-        return null;
+        SafePlace safePlace = ProxyMap.getNearestPlace();
+        if (safePlace == null)
+            return null;
+        return Path.givePathInstructions(User.getLocation(), safePlace.getLocation());
     }
 
     public static String getMap() {
-            return Map.getMap();
+            return ProxyMap.getMap();
     }
 
     public static String processCommand(String command) {

@@ -8,15 +8,7 @@
  */
 public class Path {
 	
-	public Location start;
-	public Location end;
-
-	public Path(Location start, Location end) {
-		this.start = start;
-		this.end=end;
-	}
-	
-	public String givePathInstructions(){
+	public static String givePathInstructions(Location start, Location end){
 		String path = Language.getString("path_go_to") + " ";
 		if (start.getY() < end.getY()){ // North
 			path = path + Language.getString("path_north");

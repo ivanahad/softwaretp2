@@ -16,7 +16,7 @@ public class ConfigProperty {
     }
 
     public static boolean canInformLocalisation(){
-        return onlyInstance.getPropValue("informLocalisatio").equals("yes");
+        return onlyInstance.getPropValue("informLocalisation").equals("yes");
     }
 
     public static boolean canGuideUser(){
