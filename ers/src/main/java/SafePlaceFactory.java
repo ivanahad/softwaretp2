@@ -23,4 +23,9 @@ public class SafePlaceFactory extends AbstractFactory {
             return null;
         }
     }
+
+    @Override
+    Object getObject(String type, Object... args) {
+        return getSafePlace(type, args);
+    }
 }

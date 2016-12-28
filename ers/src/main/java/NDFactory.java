@@ -32,4 +32,9 @@ public class NDFactory extends AbstractFactory{
     SafePlace getSafePlace(String type, Object... args) {
         return null;
     }
+
+    @Override
+    Object getObject(String type, Object... args) {
+        return getNaturalDisaster(type, args);
+    }
 }

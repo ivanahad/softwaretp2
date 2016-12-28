@@ -4,4 +4,5 @@
 public abstract class AbstractFactory {
     abstract NaturalDisaster getNaturalDisaster(String type, Object ...args);
     abstract SafePlace getSafePlace(String type, Object ...args);
+    abstract Object getObject(String type, Object ...args);
 }
