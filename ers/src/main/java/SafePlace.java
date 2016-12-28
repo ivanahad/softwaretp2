@@ -1,3 +1,4 @@
+import java.util.List;
 
 /**
  * Created by Ivan & Eddy
@@ -50,4 +51,5 @@ public class SafePlace{
 	public String toString(){
 		return Language.getString("safe_place") + ": " + super.toString() + "("  + description + ")";
 	}
+
 }

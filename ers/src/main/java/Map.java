@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.List;
 
 public class Map {
     private static Map onlyInstance = new Map();
@@ -23,13 +24,6 @@ public class Map {
         }
     }
 
-    public static Location getPersonLocation() {
-        return User.getLocation();
-    }
-
-    public static void setUserLocation(Location userLocation) {
-        User.modifLocation(userLocation);
-    }
 
     public static LinkedList<Object> getLocations(){
         return onlyInstance.locations;
@@ -60,5 +54,24 @@ public class Map {
 
     public static void reset(){
         onlyInstance = new Map();
+    }
+
+    public static SafePlace nearestSafePlace(){
+        List<SafePlace> safePlaces = new LinkedList<>();
+        for(Object o : getLocations()){
+            if (o.getClass() == SafePlace.class)
+                safePlaces.add((SafePlace) o);
+        }
+
+        double minDistance = Double.MAX_VALUE;
+        SafePlace nearestSafePlace = null;
+        for (SafePlace safeplace : safePlaces){
+            double distance = User.getLocation().distanceLocations(safeplace.location);
+            if (distance < minDistance){
+                minDistance = distance;
+                nearestSafePlace = safeplace;
+            }
+        }
+        return nearestSafePlace;
     }
 }

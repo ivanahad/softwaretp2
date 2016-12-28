@@ -38,8 +38,9 @@ public class Interpreter {
 
     private static void add(Matcher matcher) {
         Object object = getObject(matcher);
+        String category = matcher.group("category");
         if(object != null)
-            Map.add(object);
+            ProxyMap.add(category, object);
     }
 
     public static void update(Matcher matcher){

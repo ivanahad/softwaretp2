@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -49,19 +48,6 @@ public class User {
 		User user = (User) o;
 		
 		return Objects.equals(name, user.name);
-	}
-
-	private SafePlace nearestLocations(List<SafePlace> safePlaces){
-		double minDistance = Double.MAX_VALUE;
-		SafePlace nearestSafePlace = null;
-		for (SafePlace safeplace : safePlaces){
-			double distance = this.location.distanceLocations(safeplace.location);
-			if (distance < minDistance){
-				minDistance = distance;
-				nearestSafePlace = safeplace;
-			}
-		}
-		return nearestSafePlace;
 	}
 
 	@Override

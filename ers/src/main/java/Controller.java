@@ -25,21 +25,5 @@ public class Controller {
         return "Ok";
     }
 
-    private static String getGuidingUserEnabled(){
-        return ConfigProperty.getPropValue("guidingUser");
-
-    }
-
-    private static String getEmergencyTypesOption() {
-        return ConfigProperty.getPropValue("emergencyType");
-    }
-
-    private static String getInformLocalisationsOption() {
-        return ConfigProperty.getPropValue("informLocalisation");
-    }
-
-    private static String getSetLanguageOption(){
-        return ConfigProperty.getPropValue("letUserChooseLanguage");
-    }
 
 }

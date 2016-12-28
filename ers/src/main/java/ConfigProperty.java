@@ -2,24 +2,26 @@ import java.io.*;
 import java.util.*;
 
 // Note : Inspired by Crunchify.com's properties file explanation
-
-/**
- * Created by Ivan & Eddy
- */
 public class ConfigProperty {
 
-    //creates the only instance of the object
     private static ConfigProperty onlyInstance = new ConfigProperty();
 
-    //get the only existing instance of the object
-    public static ConfigProperty getInstance(){
-        return onlyInstance;
+
+    public static String[] getEmergenciesType(){
+        return onlyInstance.getPropValue("emergencyType").split(",");
     }
 
-    public static String getPropValue(String key){
-        return onlyInstance.prop.getProperty(key);
+    public static boolean canChangeLanguage(){
+        return onlyInstance.getPropValue("letUserChooseLanguage").equals("yes");
     }
 
+    public static boolean canInformLocalisation(){
+        return onlyInstance.getPropValue("informLocalisatio").equals("yes");
+    }
+
+    public static boolean canGuideUser(){
+        return onlyInstance.getPropValue("guidingUser").equals("yes");
+    }
 
     private Properties prop;
 
@@ -28,6 +30,9 @@ public class ConfigProperty {
         initializeConfiguration();
     }
 
+    public  String getPropValue(String key){
+        return prop.getProperty(key);
+    }
 
     private void initializeConfiguration(){
         initializeConfiguration("config.properties");
