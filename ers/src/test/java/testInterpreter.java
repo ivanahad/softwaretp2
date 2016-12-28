@@ -26,9 +26,15 @@ public class testInterpreter {
         Interpreter.interpret(command);
 
         Assert.assertEquals(Map.getLocations().size(), 1);
-        System.out.println(Map.getMap());
 
+        command = "update naturaldisaster naturaldisaster 4 5 10 4 5 11";
+        Interpreter.interpret(command);
+
+
+        command = "remove naturaldisaster naturaldisaster 4 5 11";
+        Interpreter.interpret(command);
+
+        Assert.assertEquals(Map.getLocations().size(), 0);
     }
-
 
 }

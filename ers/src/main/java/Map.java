@@ -1,8 +1,5 @@
 import java.util.LinkedList;
 
-/**
- * Created by ndizera & Ivan
- */
 public class Map {
     private static Map onlyInstance = new Map();
     private LinkedList<Object> locations;
@@ -17,6 +14,13 @@ public class Map {
 
     public static void remove(Object object){
         onlyInstance.locations.remove(object);
+    }
+
+    public static void update(Object object, Object newObject){
+        if( onlyInstance.locations.contains(object)){
+            remove(object);
+            add(newObject);
+        }
     }
 
     public static Location getPersonLocation() {

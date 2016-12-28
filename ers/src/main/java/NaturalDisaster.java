@@ -4,18 +4,14 @@
 
 public class NaturalDisaster{
 	public Location location;
-	private int id;
 
-	public static int count=0;
 
 	public NaturalDisaster(int x, int y, double radius) {
 		this.location = new Location(x, y, radius);
-		id = count++;
 	}
 
 	public NaturalDisaster(Location location) {
 		this.location = location;
-		id = count++;
 	}
 
 	public static String giveSafetyInstructions() {
@@ -33,12 +29,20 @@ public class NaturalDisaster{
 		return location;
 	}
 
-	public int getId() {
-		return id;
-	}
-
 	@Override
 	public String toString(){
 		return Language.getString("natural_disaster") + ": " + location.toString();
+	}
+
+	@Override
+	public boolean equals(Object o){
+		if(o == null)
+			return false;
+		if(getClass() != o.getClass())
+			return false;
+		NaturalDisaster other = (NaturalDisaster) o;
+		if(this.location.equals(other.location))
+			return true;
+		return false;
 	}
 }

@@ -6,23 +6,15 @@
 public class SafePlace{
 	private String description;
 	public Location location;
-	private int id;
-	public static int count=0;
 
 	public SafePlace(int x, int y, double radius, String description) {
 		this.location = new Location(x, y, radius);
 		this.description = description;
-		id = count++;
 	}
 
 	public SafePlace(Location location, String description){
 		this.location=location;
 		this.description=description;
-		id = count++;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 	public Location getLocation() {
@@ -44,10 +36,14 @@ public class SafePlace{
 
 	@Override
 	public boolean equals(Object o){
-		if (!super.equals(o))
+		if(o == null)
+			return false;
+		if(getClass() != o.getClass())
 			return false;
 		SafePlace other = (SafePlace) o;
-		return this.description == other.description;
+		if(this.location.equals(this.location))
+			return true;
+		return false;
 	}
 
 	@Override
