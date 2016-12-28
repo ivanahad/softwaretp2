@@ -3,39 +3,24 @@
  */
 public class Controller {
     public static String getSafetyInstructions() {
+        //TODO controller delegates permission
         String result = NaturalDisaster.giveSafetyInstructions() + "\n";
-        if(Expressions.containsEarthquake().interpret(getEmergencyTypesOption()))
             result += Earthquake.giveSafetyInstructions() + "\n";
-        if(Expressions.containsFlood().interpret(getEmergencyTypesOption()))
             result += Flood.giveSafetyInstructions();
         return result;
 
     }
 
     public static String getShortestPathToSafety() {
-        if(!Expressions.containsDefault().interpret(getGuidingUserEnabled())){
-            SafePlace nearestLocation =  Map.getPersonLocation().nearestLocations((Map.getSafePlaces()));
-            if(nearestLocation != null){
-                Path path = new Path(Map.getPersonLocation(), nearestLocation);
-                return path.givePathInstructions();
-            }
-        }
+
         return null;
     }
 
     public static String getMap() {
-        if(!Expressions.containsDefault().interpret(getInformLocalisationsOption()))
             return Map.getMap();
-        return null;
     }
 
     public static String processCommand(String command) {
-        if(!(Expressions.containsFlood().interpret(command) && Expressions.containsFlood().interpret(getEmergencyTypesOption())))
-            return "Denied";
-        if(!(Expressions.containsEarthquake().interpret(command) && Expressions.containsEarthquake().interpret(getEmergencyTypesOption())))
-            return "Denied";
-        if(!(Expressions.getHasLanguageEnabled().interpret(command) && Expressions.getYesExpression().interpret(getSetLanguageOption())))
-            return "Denied";
         Interpreter.interpret(command);
         return "Ok";
     }

@@ -1,10 +1,11 @@
 /**
  * Created by Ivan on 24/11/16.
  */
-public class NDFactory {
+public class NDFactory extends AbstractFactory{
 
-    public static NaturalDisaster getND(String disasterType, Object ...args){
-        if(disasterType == null){
+    @Override
+    NaturalDisaster getNaturalDisaster(String type, Object... args) {
+        if(type == null){
             return null;
         }
 
@@ -15,11 +16,11 @@ public class NDFactory {
         if(args.length == 4)
             magnitude = (Double) args[3];
 
-        if(disasterType.equalsIgnoreCase("earthquake")){
+        if(type.equalsIgnoreCase("earthquake")){
             return new Earthquake(x, y, radius, magnitude);
-        } else if(disasterType.equalsIgnoreCase("flood")){
+        } else if(type.equalsIgnoreCase("flood")){
             return new Flood(x, y, radius);
-        } else if(disasterType.equalsIgnoreCase("natural_disaster")){
+        } else if(type.equalsIgnoreCase("natural_disaster")){
             return new NaturalDisaster(x, y, radius);
         }
         else{
@@ -27,7 +28,8 @@ public class NDFactory {
         }
     }
 
-    public static NaturalDisaster getND(String disasterType, int x, int y){
-        return getND(disasterType, x, y, 0);
+    @Override
+    SafePlace getSafePlace(String type, Object... args) {
+        return null;
     }
 }
