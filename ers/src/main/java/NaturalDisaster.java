@@ -4,7 +4,7 @@ package be.ucl.ingi.lingi2252;
  * Created by Ivan & Eddy
  */
 
-public class NaturalDisaster{
+public class NaturalDisaster implements EntityWithLocation{
 	public Location location;
 
 

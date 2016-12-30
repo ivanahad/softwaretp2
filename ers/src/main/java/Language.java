@@ -22,7 +22,6 @@ public class Language {
 	}
 
 
-
 	public static void switchLanguage(String newLanguage){
 		if (onlyInstance.isSupported(newLanguage)){
 			onlyInstance.currentLanguage = newLanguage;

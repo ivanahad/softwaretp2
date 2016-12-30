@@ -36,7 +36,7 @@ public class NDFactory extends AbstractFactory{
     }
 
     @Override
-    public Object getObject(String type, Object... args) {
+    public EntityWithLocation getObject(String type, Object... args) {
         return getNaturalDisaster(type, args);
     }
 }

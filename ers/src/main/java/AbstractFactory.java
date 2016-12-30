@@ -5,5 +5,5 @@ package be.ucl.ingi.lingi2252;
 public abstract class AbstractFactory {
     abstract NaturalDisaster getNaturalDisaster(String type, Object ...args);
     abstract SafePlace getSafePlace(String type, Object ...args);
-    abstract Object getObject(String type, Object ...args);
+    abstract EntityWithLocation getObject(String type, Object ...args);
 }

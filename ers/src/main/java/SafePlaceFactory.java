@@ -27,7 +27,7 @@ public class SafePlaceFactory extends AbstractFactory {
     }
 
     @Override
-    Object getObject(String type, Object... args) {
+    EntityWithLocation getObject(String type, Object... args) {
         return getSafePlace(type, args);
     }
 }

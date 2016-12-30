@@ -6,7 +6,7 @@ import java.util.Objects;
  * Created by Ivan & Eddy
  * This class represents a "Person" object, defined as a name and a number
  */
-public class User {
+public class User implements EntityWithLocation{
 	private String name;
 	private Location location; //un User a une location
 
@@ -20,8 +20,12 @@ public class User {
 	}
 
 	private User() {
-		name = "DefaultUser";
+		name = "User";
 		location = new Location(0,0,0.0);
+	}
+
+	public Location getLocation(){
+		return location;
 	}
 
 	public static void modifName(String newname){
@@ -32,8 +36,8 @@ public class User {
 		instance.location = location;
 	}
 
-	public static Location getLocation(){
-		return instance.location;
+	public static Location getUserLocation(){
+		return instance.getLocation();
 	}
 
 	@Override
@@ -54,6 +58,6 @@ public class User {
 
 	@Override
 	public String toString(){
-		return this.name;
+		return this.name + " " + this.location.toString();
 	}
 }

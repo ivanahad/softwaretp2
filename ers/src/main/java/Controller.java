@@ -17,7 +17,7 @@ public class Controller {
         SafePlace safePlace = ProxyMap.getNearestPlace();
         if (safePlace == null)
             return null;
-        return Path.givePathInstructions(User.getLocation(), safePlace.getLocation());
+        return Path.givePathInstructions(User.getUserLocation(), safePlace.getLocation());
     }
 
     public static String getMap() {

@@ -5,21 +5,21 @@ import java.util.List;
 
 public class Map {
     private static Map onlyInstance = new Map();
-    private LinkedList<Object> locations;
+    private LinkedList<EntityWithLocation> locations;
 
     private Map(){
         this.locations = new LinkedList<>();
     }
 
-    public static void add(Object object){
+    public static void add(EntityWithLocation object){
         onlyInstance.locations.add(object);
     }
 
-    public static void remove(Object object){
+    public static void remove(EntityWithLocation object){
         onlyInstance.locations.remove(object);
     }
 
-    public static void update(Object object, Object newObject){
+    public static void update(EntityWithLocation object, EntityWithLocation newObject){
         if( onlyInstance.locations.contains(object)){
             remove(object);
             add(newObject);
@@ -27,7 +27,7 @@ public class Map {
     }
 
 
-    public static LinkedList<Object> getLocations(){
+    public static LinkedList<EntityWithLocation> getLocations(){
         return onlyInstance.locations;
     }
 
@@ -42,7 +42,7 @@ public class Map {
 
     public String locationsToString(){
         String result = Language.getString("locations") + " :\n";
-        for(Object location : locations){
+        for(EntityWithLocation location : locations){
             result += "\t - " + location.toString() + "\n";
         }
         return result;
@@ -68,7 +68,7 @@ public class Map {
         double minDistance = Double.MAX_VALUE;
         SafePlace nearestSafePlace = null;
         for (SafePlace safeplace : safePlaces){
-            double distance = User.getLocation().distanceLocations(safeplace.location);
+            double distance = User.getUserLocation().distanceLocations(safeplace.location);
             if (distance < minDistance){
                 minDistance = distance;
                 nearestSafePlace = safeplace;
