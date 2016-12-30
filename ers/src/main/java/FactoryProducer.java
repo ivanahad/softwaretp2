@@ -1,3 +1,5 @@
+package be.ucl.ingi.lingi2252;
+
 /**
  * Created by ndizera on 28/12/2016.
  */

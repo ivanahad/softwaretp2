@@ -1,3 +1,5 @@
+package be.ucl.ingi.lingi2252;
+
 import java.util.LinkedList;
 import java.util.List;
 

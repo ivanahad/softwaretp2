@@ -1,3 +1,5 @@
+package be.ucl.ingi.lingi2252;
+
 import java.util.Scanner;
 import java.util.concurrent.SynchronousQueue;
 

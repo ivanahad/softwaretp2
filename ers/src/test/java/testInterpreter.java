@@ -1,3 +1,5 @@
+import be.ucl.ingi.lingi2252.Interpreter;
+import be.ucl.ingi.lingi2252.Map;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

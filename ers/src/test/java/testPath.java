@@ -1,3 +1,5 @@
+import be.ucl.ingi.lingi2252.Location;
+import be.ucl.ingi.lingi2252.Path;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 /**

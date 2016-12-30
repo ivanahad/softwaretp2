@@ -1,5 +1,4 @@
-import java.util.LinkedHashSet;
-import java.util.Set;
+package be.ucl.ingi.lingi2252;
 
 /**
  * Created by ndizera on 11/26/16.

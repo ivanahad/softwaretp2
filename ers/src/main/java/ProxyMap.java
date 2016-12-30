@@ -1,3 +1,4 @@
+package be.ucl.ingi.lingi2252;
 
 public class ProxyMap {
 

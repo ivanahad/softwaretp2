@@ -2,6 +2,8 @@
  * Created by ndizera on 23/11/2016.
  */
 import static org.junit.Assert.*;
+
+import be.ucl.ingi.lingi2252.SafePlace;
 import org.junit.Test;
 
 public class testSafePlace {

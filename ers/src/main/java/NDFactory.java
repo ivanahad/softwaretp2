@@ -1,10 +1,12 @@
+package be.ucl.ingi.lingi2252;
+
 /**
  * Created by Ivan on 24/11/16.
  */
 public class NDFactory extends AbstractFactory{
 
     @Override
-    NaturalDisaster getNaturalDisaster(String type, Object... args) {
+    public NaturalDisaster getNaturalDisaster(String type, Object... args) {
         if(type == null){
             return null;
         }
@@ -29,12 +31,12 @@ public class NDFactory extends AbstractFactory{
     }
 
     @Override
-    SafePlace getSafePlace(String type, Object... args) {
+    public SafePlace getSafePlace(String type, Object... args) {
         return null;
     }
 
     @Override
-    Object getObject(String type, Object... args) {
+    public Object getObject(String type, Object... args) {
         return getNaturalDisaster(type, args);
     }
 }

@@ -1,3 +1,5 @@
+import be.ucl.ingi.lingi2252.Controller;
+import be.ucl.ingi.lingi2252.NaturalDisaster;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -2,6 +2,10 @@
  * Created by Ivan & Eddy
  */
 
+import be.ucl.ingi.lingi2252.Earthquake;
+import be.ucl.ingi.lingi2252.Flood;
+import be.ucl.ingi.lingi2252.NDFactory;
+import be.ucl.ingi.lingi2252.NaturalDisaster;
 import jdk.nashorn.internal.objects.NativeUint8Array;
 import org.junit.After;
 import org.junit.Before;

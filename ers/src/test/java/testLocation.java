@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import be.ucl.ingi.lingi2252.Location;
 import org.junit.Test;
 
 public class testLocation {
