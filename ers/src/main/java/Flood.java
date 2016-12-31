@@ -4,6 +4,7 @@ package be.ucl.ingi.lingi2252;
  * Created by Ivan & Eddy
  */
 public class Flood extends NaturalDisaster{
+	public static String FLOOD = "flood";
 	public Flood(int x, int y, double radius) {
 		super(x, y, radius);
 	}

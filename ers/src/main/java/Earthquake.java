@@ -5,6 +5,7 @@ package be.ucl.ingi.lingi2252;
  */
 public class Earthquake extends NaturalDisaster {
 	public double magnitude;
+	public static String EARTHQUAKE = "earthquake";
 
 	public Earthquake(int x, int y, double radius, double magnitude) {
 		super(x, y, radius);

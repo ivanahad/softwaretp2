@@ -5,10 +5,10 @@ package be.ucl.ingi.lingi2252;
  */
 public class FactoryProducer {
     public static AbstractFactory getFactory(String choice){
-        if(choice.equalsIgnoreCase("naturaldisaster")){
+        if(choice.equalsIgnoreCase(NaturalDisaster.NATURAL_DISASTER)){
             return new NDFactory();
 
-        }else if(choice.equalsIgnoreCase("safeplace")){
+        }else if(choice.equalsIgnoreCase(SafePlace.SAFEPLACE)){
             return new SafePlaceFactory();
         }
         return null;

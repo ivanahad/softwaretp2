@@ -10,9 +10,9 @@ public class Controller {
     public static String getSafetyInstructions() {
         HashMap<String, LinkedList<EntityWithLocation>> locations = Map.getLocations();
         String result = NaturalDisaster.giveSafetyInstructions() + "\n";
-        if(locations.containsKey("earthquake") && locations.get("earthquake").size()>0)
+        if(locations.containsKey(Earthquake.EARTHQUAKE) && locations.get(Earthquake.EARTHQUAKE).size()>0)
             result += Earthquake.giveSafetyInstructions() + "\n";
-        if(locations.containsKey("flood") && locations.get("flood").size()>0)
+        if(locations.containsKey(Flood.FLOOD) && locations.get(Flood.FLOOD).size()>0)
             result += Flood.giveSafetyInstructions();
         return result;
     }

@@ -18,11 +18,11 @@ public class NDFactory extends AbstractFactory{
         if(args.length == 4)
             magnitude = (Double) args[3];
 
-        if(type.equalsIgnoreCase("earthquake")){
+        if(type.equalsIgnoreCase(Earthquake.EARTHQUAKE)){
             return new Earthquake(x, y, radius, magnitude);
-        } else if(type.equalsIgnoreCase("flood")){
+        } else if(type.equalsIgnoreCase(Flood.FLOOD)){
             return new Flood(x, y, radius);
-        } else if(type.equalsIgnoreCase("naturaldisaster")){
+        } else if(type.equalsIgnoreCase(NaturalDisaster.NATURAL_DISASTER)){
             return new NaturalDisaster(x, y, radius);
         }
         else{

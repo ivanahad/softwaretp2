@@ -7,6 +7,7 @@ package be.ucl.ingi.lingi2252;
 public class SafePlace implements EntityWithLocation{
 	private String description;
 	public Location location;
+	public static String SAFEPLACE = "safeplace";
 
 	public SafePlace(int x, int y, double radius, String description) {
 		this.location = new Location(x, y, radius);
@@ -49,7 +50,7 @@ public class SafePlace implements EntityWithLocation{
 
 	@Override
 	public String toString(){
-		return Language.getString("safe_place") + ": " + super.toString() + "("  + description + ")";
+		return Language.getString("safe_place") + ": " + this.location + "("  + description + ")";
 	}
 
 }

@@ -70,10 +70,10 @@ public class Map {
     }
 
     public static SafePlace nearestSafePlace(){
-        if(!getLocations().containsKey("safeplace"))
+        if(!getLocations().containsKey(SafePlace.SAFEPLACE))
             return null;
         List<SafePlace> safePlaces = new LinkedList<>();
-        for(Object o : getLocations().get("safeplace")){
+        for(Object o : getLocations().get(SafePlace.SAFEPLACE)){
             if (o.getClass() == SafePlace.class)
                 safePlaces.add((SafePlace) o);
         }

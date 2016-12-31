@@ -6,6 +6,7 @@ package be.ucl.ingi.lingi2252;
 
 public class NaturalDisaster implements EntityWithLocation{
 	public Location location;
+	public static String NATURAL_DISASTER = "naturaldisaster";
 
 
 	public NaturalDisaster(int x, int y, double radius) {
