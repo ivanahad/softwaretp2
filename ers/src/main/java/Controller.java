@@ -1,16 +1,20 @@
 package be.ucl.ingi.lingi2252;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+
 /**
  * Created by ndizera on 11/26/16.
  */
 public class Controller {
     public static String getSafetyInstructions() {
-        //TODO
+        HashMap<String, LinkedList<EntityWithLocation>> locations = Map.getLocations();
         String result = NaturalDisaster.giveSafetyInstructions() + "\n";
+        if(locations.containsKey("earthquake") && locations.get("earthquake").size()>0)
             result += Earthquake.giveSafetyInstructions() + "\n";
+        if(locations.containsKey("flood") && locations.get("flood").size()>0)
             result += Flood.giveSafetyInstructions();
         return result;
-
     }
 
     public static String getShortestPathToSafety() {

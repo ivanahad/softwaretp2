@@ -1,34 +1,41 @@
 package be.ucl.ingi.lingi2252;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class Map {
     private static Map onlyInstance = new Map();
-    private LinkedList<EntityWithLocation> locations;
+    private HashMap<String, LinkedList<EntityWithLocation>> locationsByType;
 
     private Map(){
-        this.locations = new LinkedList<>();
+        this.locationsByType = new HashMap<>();
     }
 
-    public static void add(EntityWithLocation object){
-        onlyInstance.locations.add(object);
+
+    public static void add(String category, EntityWithLocation object){
+        if (!onlyInstance.locationsByType.containsKey(category)){
+            onlyInstance.locationsByType.put(category, new LinkedList<>());
+        }
+        onlyInstance.locationsByType.get(category).add(object);
     }
 
-    public static void remove(EntityWithLocation object){
-        onlyInstance.locations.remove(object);
+    public static void remove(String category, EntityWithLocation object){
+        onlyInstance.locationsByType.get(category).remove(object);
     }
 
-    public static void update(EntityWithLocation object, EntityWithLocation newObject){
-        if( onlyInstance.locations.contains(object)){
-            remove(object);
-            add(newObject);
+
+    public static void update(String category, EntityWithLocation object, EntityWithLocation newObject){
+        if(onlyInstance.locationsByType.get(category).contains(object)){
+            remove(category, object);
+            add(category, newObject);
         }
     }
 
 
-    public static LinkedList<EntityWithLocation> getLocations(){
-        return onlyInstance.locations;
+    public static HashMap<String, LinkedList<EntityWithLocation>> getLocations(){
+        return onlyInstance.locationsByType;
     }
 
 
@@ -41,9 +48,13 @@ public class Map {
     }
 
     public String locationsToString(){
-        String result = Language.getString("locations") + " :\n";
-        for(EntityWithLocation location : locations){
-            result += "\t - " + location.toString() + "\n";
+        Set<String> keys = onlyInstance.locationsByType.keySet();
+        String result = "";
+        for(String key : keys){
+            result = key + " :\n";
+            for(EntityWithLocation location : onlyInstance.locationsByType.get(key)){
+                result += "\t - " + location.toString() + "\n";
+            }
         }
         return result;
     }
@@ -59,8 +70,10 @@ public class Map {
     }
 
     public static SafePlace nearestSafePlace(){
+        if(!getLocations().containsKey("safeplace"))
+            return null;
         List<SafePlace> safePlaces = new LinkedList<>();
-        for(Object o : getLocations()){
+        for(Object o : getLocations().get("safeplace")){
             if (o.getClass() == SafePlace.class)
                 safePlaces.add((SafePlace) o);
         }

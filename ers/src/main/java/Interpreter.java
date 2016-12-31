@@ -44,16 +44,17 @@ public class Interpreter {
 
     private static void remove(Matcher matcher) {
         EntityWithLocation object = getObject(matcher);
+        String type  = matcher.group("type");
         if(object != null)
-            Map.remove(object);
+            Map.remove(type, object);
     }
 
 
     private static void add(Matcher matcher) {
         EntityWithLocation object = getObject(matcher);
-        String category = matcher.group("category");
+        String type = matcher.group("type");
         if(object != null)
-            ProxyMap.add(category, object);
+            ProxyMap.add(type, object);
     }
 
     public static void update(Matcher matcher){
@@ -66,7 +67,7 @@ public class Interpreter {
         AbstractFactory factory = FactoryProducer.getFactory(category);
         EntityWithLocation newObject = factory.getObject(type, x, y, radius);
         if (object != null){
-            Map.update(object, newObject);
+            Map.update(type, object, newObject);
         }
     }
 

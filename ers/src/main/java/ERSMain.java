@@ -8,11 +8,11 @@ import java.io.*;
 public class ERSMain {
 
 	public static void main(String[] args) throws IOException {
-//		while(true) {
+	while(true) {
 			Views.displayAllInfo();
-//			Views.getCommand();
+			Views.getCommand();
 			System.out.println("\n\n");
-//		}
+		}
 	}
 
 }

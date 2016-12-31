@@ -5,7 +5,7 @@ public class ProxyMap {
     public static void add(String category, EntityWithLocation object){
         for(String emergencyType : ConfigProperty.getEmergenciesType()){
             if (emergencyType.equals(category)) {
-                Map.add(object);
+                Map.add(category, object);
                 return;
             }
         }
